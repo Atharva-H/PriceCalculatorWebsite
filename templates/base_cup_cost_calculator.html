@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Paricott India Papercup Pvt. Ltd.</h1>
+    <form action="/base" method="POST">
+      {% csrf_token %}
+      <div>
+        <label for="size_of_cup">Size of Cup:</label>
+        <select name="size_of_cup" id="size_of_cup">
+          <option value="40">40ml</option>
+          <option value="55">55ml</option>
+          <option value="65">65ml</option>
+          <option value="75">75ml</option>
+          <option value="85">85ml</option>
+          <option value="90">90ml</option>
+          <option value="100">100ml</option>
+          <option value="100 SB">100ml SB</option>
+          <option value="120">120ml</option>
+          <option value="125">125ml</option>
+          <option value="130">130ml</option>
+          <option value="150">150ml</option>
+          <option value="150 SB">150ml SB</option>
+          <option value="200">200ml</option>
+          <option value="8 Oz">8 Oz</option>
+          <option value="250">250ml</option>
+          <option value="300">300ml</option>
+          <option value="330">330ml</option>
+        </select>
+      </div>
+      <div>
+        <label for="gsm">New GSM:</label>
+        <input type="number" name="gsm" id="gsm" />
+      </div>
+      <div>
+        <label for="paper_rate">Paper Rate:</label>
+        <input type="number" name="paper_rate" id="paper_rate" value="95" />
+      </div>
+      <div>
+        <label for="scrape_rate">Scrape Rate:</label>
+        <input type="number" name="scrape_rate" id="scrape_rate" value="12" />
+      </div>
+      <div>
+        <label for="margin">Margin:</label>
+        <input type="number" name="margin" id="margin" value="7" min="0" />
+      </div>
+      <input type="submit" value="Calculate" />
+    </form>
+  </body>
+</html>

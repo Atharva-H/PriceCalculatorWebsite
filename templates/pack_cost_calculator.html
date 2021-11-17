@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Paricott India Papercup Pvt. Ltd.</h1>
+    <form action="packcost" method="post">
+      {% csrf_token %}
+      <div>
+        <label for="CostperCup">Cost per Cup</label>
+        <input type="text" name="CostperCup" id="CostperCup" />
+      </div>
+      <div>
+        <label for="CupsperSKU">Cups per SKU</label>
+        <input type="text" name="CupsperSKU" id="CupsperSKU" />
+      </div>
+      <div>
+        <label for="SKUperMC">SKU per MC:</label>
+        <input type="text" name="SKUperMC" id="SKUperMC" />
+      </div>
+      <div>
+        <label for="PrintingCost">Printing Cost per Cup:</label>
+        <input type="text" name="PrintingCost" id="PrintingCost" />
+      </div>
+      <div>
+        <label for="LabelCost">Label Cost per SKU:</label>
+        <input type="text" name="LabelCost" id="LabelCost" />
+      </div>
+      <div>
+        <label for="PolyCost">Poly Cost per SKU:</label>
+        <input type="text" name="PolyCost" id="PolyCost" />
+      </div>
+      <div>
+        <label for="MCCost">Master Carton Cost:</label>
+        <input type="text" name="MCCost" id="MCCost" />
+      </div>
+      <div>
+        <label for="Freight">Freight per conatiner:</label>
+        <input type="text" name="Freight" id="Freight" />
+      </div>
+      <div>
+        <label for="BoxsPerContainer">Boxes(MC) per conatiner:</label>
+        <input type="text" name="BoxsPerContainer" id="BoxsPerContainer" />
+      </div>
+      <div>
+        <label for="DollorRate">Dollor Rate:</label>
+        <input type="text" name="DollorRate" id="DollorRate" />
+      </div>
+      <div>
+        <label for="AddCostperSKU">Additional Cost per SKU:</label>
+        <input type="text" name="AddCostperSKU" id="AddCostperSKU" />
+      </div>
+      <input type="submit" value="Calculate" />
+    </form>
+  </body>
+</html>
