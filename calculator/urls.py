@@ -16,12 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import base_cup_handler, data_calib_handler, pack_cost_handler, pdf_handler
+from .views import (
+    base_cup_handler,
+    data_calib_handler,
+    pack_cost_handler,
+    pdf_handler,
+    home,
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("base", base_cup_handler, name="base cup cost calculator"),
+    path("calib", data_calib_handler, name="Calibrate ur data"),
+    path("home", home, name="Calibrate ur data"),
     path("packcost", pack_cost_handler, name="Calculater for Packet Cost"),
     path("topdf", pdf_handler, name="Will create a pdf"),
-    path("calib", data_calib_handler, name="Calibrate ur data"),
 ]

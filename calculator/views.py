@@ -23,7 +23,10 @@ def base_cup_handler(request):
         base_cup_cost = base_cup_cost_calculator(
             size_of_cup, gsm, paper_rate, scrape_rate, margin
         )
-        return HttpResponse(f"Base cup cost of {size_of_cup} ml is {base_cup_cost} INR")
+        # return HttpResponse(f"Base cup cost of {size_of_cup} ml is {base_cup_cost} INR")
+        context = {}
+        context["some_string"] = base_cup_cost
+        return render(request, "base_cup_cost_calculator.html", context)
 
 
 def pack_cost_handler(request):
@@ -50,6 +53,14 @@ def pack_cost_handler(request):
         )
 
 
+def home(request):
+    if request.method == "GET":
+        return render(request, "home.html")
+
+    if request.method == "POST":
+        return HttpResponse("home")
+
+
 def pdf_handler(request):
     if request.method == "GET":
         return render(request, "buyer_info.html")
@@ -62,12 +73,12 @@ def pdf_handler(request):
         for i in [
             "size_of_cup",
             "productName",
-            "NoPacketinConatiner",
+            "NoSKUinConatiner",
             "Rate",
             "Amount",
-            "NoBoxinConatiner",
-            "BoxSize",
-            "CBMperBox",
+            "NoMCinConatiner",
+            "MCSize",
+            "CBMperMC",
             "CBMper40HQ",
             "DecSub",
             "TopDia",
@@ -88,7 +99,7 @@ def pdf_handler(request):
             CompName=request_body["CompanyName"][0],
             CompAdd=request_body["CompanyAdd"][0],
             BuyerName=request_body["BuyerName"][0],
-            BuyerDet=request_body["BuyerAdd"][0],
+            BuyerDet=request_body["Buyerinfo"][0],
             TandC=request_body["T&C"][0],
             productName=data[1],
             NoPacketinConatiner=data[2],
@@ -106,14 +117,23 @@ def pdf_handler(request):
             Item3="Item3" in request_body.keys(),
         )
 
-        filename = request_body["CompanyName"][0] + "Q"
-        PDF.output(f"{filename}.pdf")
-        return HttpResponse("In Development")
+        filename = (
+            "Q-" + request_body["noQuote"][0] + " " + request_body["CompanyName"][0]
+        )
+        PDF.output(f"quote/{filename}.pdf")
+        return HttpResponse(f"Quotation File generated in quote/{filename}")
 
 
 def data_calib_handler(request):
     if request.method == "GET":
-        return render(request, "calibrate.html")
+        with open("calculator/utils/calibrate_data/base_cup_data.json") as f:
+            RM_Data = json.load(f)
+        context = {}
+        for i in RM_Data.keys():
+            for j in RM_Data[i].keys():
+                context[f"{i}{j[0]}{j[1]}"] = RM_Data[i][j]
+
+        return render(request, "calibrate.html", context)
 
     if request.method == "POST":
         request_body = dict(request.POST)

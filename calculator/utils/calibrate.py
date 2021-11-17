@@ -18,7 +18,7 @@ def calibrate(request_body):
             "Bottom",
             "Over heads",
         ]:
-            e[i] = int(request_body[f"{j}{i}"][0])
+            e[i] = float(request_body[f"{j}{i}"][0])
         d[j] = e.copy()
     return d
 

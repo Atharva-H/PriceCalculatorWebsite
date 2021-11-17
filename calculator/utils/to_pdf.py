@@ -291,7 +291,7 @@ def topdf(
             Height=Height[1],
             DecSub=DecSub[1],
         )
-    elif Item3 != False:
+    if Item3 != False:
         pdf.ProductDet(
             sno=3,
             productName=productName[2],

@@ -4,10 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles\header.css" />
     <title>Document</title>
   </head>
   <body>
-    <h1>Paricott India Papercup Pvt. Ltd.</h1>
+    <header class="site-header">
+      <div class="wrapper site-header__wrapper">
+        <a href="/home" class="brand">Paricott Calculator</a>
+        <nav class="nav">
+          <ul class="nav__wrapper">
+            <li class="nav__item"><a href="/home">Home</a></li>
+            <li class="nav__item"><a href="/base">Basecup Cost</a></li>
+            <li class="nav__item"><a href="/packcost">SKU Cost</a></li>
+            <li class="nav__item"><a href="/topdf">To PDF</a></li>
+            <li class="nav__item"><a href="/calib">Calibrate</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <form action="packcost" method="post">
       {% csrf_token %}
       <div>

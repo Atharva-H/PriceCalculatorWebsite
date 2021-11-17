@@ -4,10 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles\header.css" />
+
     <title>Document</title>
   </head>
   <body>
-    <h1>Paricott India Papercup Pvt. Ltd.</h1>
+    <header class="site-header">
+      <div class="wrapper site-header__wrapper">
+        <a href="/home" class="brand">Paricott Calculator</a>
+        <nav class="nav">
+          <ul class="nav__wrapper">
+            <li class="nav__item"><a href="/home">Home</a></li>
+            <li class="nav__item"><a href="/base">Basecup Cost</a></li>
+            <li class="nav__item"><a href="/packcost">SKU Cost</a></li>
+            <li class="nav__item"><a href="/topdf">To PDF</a></li>
+            <li class="nav__item"><a href="/calib">Calibrate</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <form action="topdf" method="post">
       {% csrf_token %}
       <td>
@@ -31,6 +47,16 @@
         />
       </td>
 
+      <div>
+        <label for="Abrv">Abrv:</label>
+        <input
+          type="text"
+          name="Abrv"
+          id="Abrv"
+          placeholder="MaxHome"
+          required
+        />
+      </div>
       <div>
         <label for="CompanyName">Company Name:</label>
         <input
@@ -65,10 +91,10 @@ United States of America"
         />
       </div>
       <div>
-        <label for="BuyerAdd">Buyer Address:</label>
+        <label for="Buyerinfo">Buyer info:</label>
         <textarea
-          name="BuyerAdd"
-          id="BuyerAdd"
+          name="Buyerinfo"
+          id="Buyerinfo"
           cols="30"
           rows="3"
           required
@@ -100,12 +126,12 @@ Sheva,
           <th>No. Of Item</th>
           <th>Size of Cup</th>
           <th>Product Name</th>
-          <th>No Packet in Conatiner</th>
+          <th>No SKU in Conatiner</th>
           <th>Rate $</th>
           <th>Amount</th>
-          <th>No Box in Conatiner</th>
-          <th>Box Size</th>
-          <th>CBM per Box</th>
+          <th>No MC in Conatiner</th>
+          <th>MC Size</th>
+          <th>CBM per MC</th>
           <th>CBM per 40HQ</th>
           <th>Discription</th>
         </tr>
@@ -123,14 +149,15 @@ Sheva,
               <option value="85">85ml</option>
               <option value="90">90ml</option>
               <option value="100">100ml</option>
-              <option value="100 SB">100ml SB</option>
+              <option value="100SB">100ml SB</option>
               <option value="120">120ml</option>
               <option value="125">125ml</option>
               <option value="130">130ml</option>
               <option value="150">150ml</option>
-              <option value="150 SB">150ml SB</option>
+              <option value="150SB">150ml SB</option>
               <option value="200">200ml</option>
-              <option value="8 Oz">8 Oz</option>
+              <option value="200SB">200ml SB</option>
+              <option value="8Oz">8 Oz</option>
               <option value="250">250ml</option>
               <option value="300">300ml</option>
               <option value="330">330ml</option>
@@ -149,8 +176,8 @@ Sheva,
           <td>
             <input
               type="number"
-              name="NoPacketinConatiner1"
-              id="NoPacketinConatiner1"
+              name="NoSKUinConatiner1"
+              id="NoSKUinConatiner1"
               size="15"
               required
               placeholder="1920 "
@@ -179,8 +206,8 @@ Sheva,
           <td>
             <input
               type="number"
-              name="NoBoxinConatiner1"
-              id="NoBoxinConatiner1"
+              name="NoMCinConatiner1"
+              id="NoMCinConatiner1"
               size="5"
               required
               placeholder="3380 "
@@ -189,8 +216,8 @@ Sheva,
           <td>
             <input
               type="text"
-              name="BoxSize1"
-              id="BoxSize1"
+              name="MCSize1"
+              id="MCSize1"
               size="15"
               required
               placeholder="334 X 253 x 217 cm"
@@ -199,8 +226,8 @@ Sheva,
           <td>
             <input
               type="text"
-              name="CBMperBox1"
-              id="CBMperBox1"
+              name="CBMperMC1"
+              id="CBMperMC1"
               size="13"
               required
               placeholder="0.0183"
@@ -247,14 +274,15 @@ Printing in One Color: Maroon Color"
               <option value="85">85ml</option>
               <option value="90">90ml</option>
               <option value="100">100ml</option>
-              <option value="100 SB">100ml SB</option>
-              <option value="120">120ml</option>
+              <option value="100SB">100ml SB</option>
+              <option value="120SB">120ml SB</option>
               <option value="125">125ml</option>
               <option value="130">130ml</option>
               <option value="150">150ml</option>
-              <option value="150 SB">150ml SB</option>
+              <option value="150SB">150ml SB</option>
               <option value="200">200ml</option>
-              <option value="8 Oz">8 Oz</option>
+              <option value="200SB">200ml SB</option>
+              <option value="8Oz">8 Oz</option>
               <option value="250">250ml</option>
               <option value="300">300ml</option>
               <option value="330">330ml</option>
@@ -272,8 +300,8 @@ Printing in One Color: Maroon Color"
           <td>
             <input
               type="number"
-              name="NoPacketinConatiner2"
-              id="NoPacketinConatiner2"
+              name="NoSKUinConatiner2"
+              id="NoSKUinConatiner2"
               size="15"
               placeholder="1920 "
             />
@@ -299,8 +327,8 @@ Printing in One Color: Maroon Color"
           <td>
             <input
               type="number"
-              name="NoBoxinConatiner2"
-              id="NoBoxinConatiner2"
+              name="NoMCinConatiner2"
+              id="NoMCinConatiner2"
               size="5"
               placeholder="3380 "
             />
@@ -308,8 +336,8 @@ Printing in One Color: Maroon Color"
           <td>
             <input
               type="text"
-              name="BoxSize2"
-              id="BoxSize2"
+              name="MCSize2"
+              id="MCSize2"
               size="15"
               placeholder="334 X 253 x 217 cm"
             />
@@ -317,8 +345,8 @@ Printing in One Color: Maroon Color"
           <td>
             <input
               type="text"
-              name="CBMperBox2"
-              id="CBMperBox2"
+              name="CBMperMC2"
+              id="CBMperMC2"
               size="13"
               placeholder="0.0183"
             />
@@ -362,14 +390,15 @@ Printing in One Color: Maroon Color"
               <option value="85">85ml</option>
               <option value="90">90ml</option>
               <option value="100">100ml</option>
-              <option value="100 SB">100ml SB</option>
-              <option value="120">120ml</option>
+              <option value="100SB">100ml SB</option>
+              <option value="120SB">120ml SB</option>
               <option value="125">125ml</option>
               <option value="130">130ml</option>
               <option value="150">150ml</option>
-              <option value="150 SB">150ml SB</option>
+              <option value="150SB">150ml SB</option>
               <option value="200">200ml</option>
-              <option value="8 Oz">8 Oz</option>
+              <option value="200SB">200ml SB</option>
+              <option value="8Oz">8 Oz</option>
               <option value="250">250ml</option>
               <option value="300">300ml</option>
               <option value="330">330ml</option>
@@ -387,8 +416,8 @@ Printing in One Color: Maroon Color"
           <td>
             <input
               type="number"
-              name="NoPacketinConatiner3"
-              id="NoPacketinConatiner3"
+              name="NoSKUinConatiner3"
+              id="NoSKUinConatiner3"
               size="15"
               placeholder="1920 "
             />
@@ -414,8 +443,8 @@ Printing in One Color: Maroon Color"
           <td>
             <input
               type="number"
-              name="NoBoxinConatiner3"
-              id="NoBoxinConatiner2"
+              name="NoMCinConatiner3"
+              id="NoMCinConatiner2"
               size="5"
               placeholder="3380 "
             />
@@ -423,8 +452,8 @@ Printing in One Color: Maroon Color"
           <td>
             <input
               type="text"
-              name="BoxSize3"
-              id="BoxSize3"
+              name="MCSize3"
+              id="MCSize3"
               size="15"
               placeholder="334 X 253 x 217 cm"
             />
@@ -432,8 +461,8 @@ Printing in One Color: Maroon Color"
           <td>
             <input
               type="text"
-              name="CBMperBox3"
-              id="CBMperBox3"
+              name="CBMperMC3"
+              id="CBMperMC3"
               size="13"
               placeholder="0.0183"
             />

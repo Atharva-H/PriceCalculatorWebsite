@@ -4,11 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Base Cup Cost</title>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'header.css'%}" />
   </head>
 
   <body>
-    <h1>Paricott India Papercup Pvt. Ltd.</h1>
+    <header class="site-header">
+      <div class="wrapper site-header__wrapper">
+        <a href="/home" class="brand">Paricott Calculator</a>
+        <nav class="nav">
+          <ul class="nav__wrapper">
+            <li class="nav__item"><a href="/home">Home</a></li>
+            <li class="nav__item"><a href="/base">Basecup Cost</a></li>
+            <li class="nav__item"><a href="/packcost">SKU Cost</a></li>
+            <li class="nav__item"><a href="/topdf">To PDF</a></li>
+            <li class="nav__item"><a href="/calib">Calibrate</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <form action="/base" method="POST">
       {% csrf_token %}
       <div>
@@ -21,14 +37,15 @@
           <option value="85">85ml</option>
           <option value="90">90ml</option>
           <option value="100">100ml</option>
-          <option value="100 SB">100ml SB</option>
-          <option value="120">120ml</option>
+          <option value="100SB">100ml SB</option>
+          <option value="120SB">120ml SB</option>
           <option value="125">125ml</option>
           <option value="130">130ml</option>
           <option value="150">150ml</option>
-          <option value="150 SB">150ml SB</option>
+          <option value="150SB">150ml SB</option>
           <option value="200">200ml</option>
-          <option value="8 Oz">8 Oz</option>
+          <option value="200SB">200ml</option>
+          <option value="8Oz">8 Oz</option>
           <option value="250">250ml</option>
           <option value="300">300ml</option>
           <option value="330">330ml</option>
@@ -36,7 +53,7 @@
       </div>
       <div>
         <label for="gsm">New GSM:</label>
-        <input type="number" name="gsm" id="gsm" />
+        <input type="number" name="gsm" id="gsm" required />
       </div>
       <div>
         <label for="paper_rate">Paper Rate:</label>
@@ -52,5 +69,6 @@
       </div>
       <input type="submit" value="Calculate" />
     </form>
+    {{some_string}}
   </body>
 </html>
