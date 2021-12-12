@@ -50,7 +50,12 @@ def PackCost(
     CostperMCinINR = TotalCostperCup * CupsperSKU * SKUperMC
     CostperMCinDollor = CostperMCinINR / DollorRate
 
-    return round(CostperMCinINR, 3), round(CostperMCinDollor, 3)
+    return (
+        round(CostperMCinINR, 3),
+        round(CostperMCinDollor, 3),
+        round(CostperSKUinINR, 3),
+        round(CostperSKUinDollor, 3),
+    )
 
 
 def pack_cost_calculator(

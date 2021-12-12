@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Paricott Calculator| Home</title>
-    <link rel="stylesheet" href="styles\header.css" />
-  </head>
+{%extends 'base.html'%} {% block content%}
+<title>PARICOTT | Home</title>
+{% load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'topdf.css' %}" />
 
-  <body>
-    <header class="site-header">
-      <div class="wrapper site-header__wrapper">
-        <a href="/home" class="brand">Paricott Calculator</a>
-        <nav class="nav">
-          <ul class="nav__wrapper">
-            <li class="nav__item"><a href="/home">Home</a></li>
-            <li class="nav__item"><a href="/base">Basecup Cost</a></li>
-            <li class="nav__item"><a href="/packcost">SKU Cost</a></li>
-            <li class="nav__item"><a href="/topdf">To PDF</a></li>
-            <li class="nav__item"><a href="/calib">Calibrate</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <h1>Home Page in development</h1>
-  </body>
-</html>
+<h2>Welcome to Paricott Calculator</h2>
+<p class="para">
+  Here u can calculate cost of paper cup. It starts with Base cup cost which
+  means base white cup with no printing, ripple, lid, handle etc. <br />
+  & the base value wile be of a single cup.
+</p>
+
+{% endblock %}

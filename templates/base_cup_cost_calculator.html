@@ -1,35 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Base Cup Cost</title>
-    {% load static%}
-    <link rel="stylesheet" href="{% static 'header.css'%}" />
-  </head>
-
-  <body>
-    <header class="site-header">
-      <div class="wrapper site-header__wrapper">
-        <a href="/home" class="brand">Paricott Calculator</a>
-        <nav class="nav">
-          <ul class="nav__wrapper">
-            <li class="nav__item"><a href="/home">Home</a></li>
-            <li class="nav__item"><a href="/base">Basecup Cost</a></li>
-            <li class="nav__item"><a href="/packcost">SKU Cost</a></li>
-            <li class="nav__item"><a href="/topdf">To PDF</a></li>
-            <li class="nav__item"><a href="/calib">Calibrate</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <form action="/base" method="POST">
-      {% csrf_token %}
-      <div>
-        <label for="size_of_cup">Size of Cup:</label>
-        <select name="size_of_cup" id="size_of_cup">
+{%extends 'base.html'%} {% block content%}
+<title>PARICOTT | BaseCup</title>
+{% load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'topdf.css' %}" />
+<form action="/base" method="POST">
+  {% csrf_token %}
+  <table>
+    <tr>
+      <td><label for="size_of_cup">Size of Cup:</label></td>
+      <td>
+        <select name="size_of_cup" id="size_of_cup" required>
+          <option value="" , disabled selected>Select Size</option>
           <option value="40">40ml</option>
           <option value="55">55ml</option>
           <option value="65">65ml</option>
@@ -43,32 +23,76 @@
           <option value="130">130ml</option>
           <option value="150">150ml</option>
           <option value="150SB">150ml SB</option>
+          <option value="170">170ml</option>
           <option value="200">200ml</option>
-          <option value="200SB">200ml</option>
+          <option value="200SB">200ml SB</option>
           <option value="8Oz">8 Oz</option>
           <option value="250">250ml</option>
           <option value="300">300ml</option>
           <option value="330">330ml</option>
         </select>
-      </div>
-      <div>
-        <label for="gsm">New GSM:</label>
-        <input type="number" name="gsm" id="gsm" required />
-      </div>
-      <div>
-        <label for="paper_rate">Paper Rate:</label>
-        <input type="number" name="paper_rate" id="paper_rate" value="95" />
-      </div>
-      <div>
-        <label for="scrape_rate">Scrape Rate:</label>
-        <input type="number" name="scrape_rate" id="scrape_rate" value="12" />
-      </div>
-      <div>
-        <label for="margin">Margin:</label>
-        <input type="number" name="margin" id="margin" value="7" min="0" />
-      </div>
-      <input type="submit" value="Calculate" />
-    </form>
-    {{some_string}}
-  </body>
-</html>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="gsm">New GSM:</label></td>
+      <td>
+        <input
+          type="number"
+          name="gsm"
+          id="gsm"
+          value="{{gsm}}"
+          min="0"
+          placeholder="175"
+          required
+        />
+      </td>
+    </tr>
+    <tr>
+      <td><label for="paper_rate">Paper Rate:</label></td>
+      <td>
+        <input
+          type="number"
+          name="paper_rate"
+          id="paper_rate"
+          value="{{paper_rate}}"
+          min="0"
+          placeholder="75"
+          required
+        />
+      </td>
+    </tr>
+    <tr>
+      <td><label for="scrape_rate">Scrape Rate:</label></td>
+      <td>
+        <input
+          type="number"
+          name="scrape_rate"
+          id="scrape_rate"
+          value="{{scrape_rate}}"
+          min="0"
+          placeholder="12"
+          required
+        />
+      </td>
+    </tr>
+    <tr>
+      <td><label for="margin">Margin:</label></td>
+      <td>
+        <input
+          type="number"
+          name="margin"
+          id="margin"
+          value="{{margin}}"
+          min="0"
+          placeholder="5"
+          required
+        />
+      </td>
+    </tr>
+  </table>
+
+  <input type="submit" value="Calculate" />
+</form>
+<br />
+<strong>Result!</strong> Base cup cost of {{size_of_cup}} ml is
+₹{{base_cup_cost}} {% endblock %}

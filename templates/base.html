@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% load static%}
+    <link rel="icon" type="image/x-icon" href="{% static 'logo.ico' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <div class="banner">
+      <header class="site-header">
+        <span class="logo">
+          <img src="{% static 'logo.png' %}" alt="Logo" />
+        </span>
+        <nav class="nav-bar">
+          <ul>
+            <!-- <a href="#"><li class="active">USE THIS IF U WANT TO ADD ANY ELEMENT</li></a>-->
+
+            <a href="/"><li class="active">Home</li></a>
+            <a href="/base"><li>Base Cup</li></a>
+            <a href="/packcost"><li>Pack Cost</li></a>
+            <a href="/topdf"><li>To Pdf</li></a>
+            <a href="/calib"><li>Caliberate</li></a>
+          </ul>
+        </nav>
+      </header>
+      <br />
+      <div class="content">{% block content%} {% endblock %}</div>
+    </div>
+  </body>
+</html>

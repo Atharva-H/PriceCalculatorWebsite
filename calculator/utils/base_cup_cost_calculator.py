@@ -20,7 +20,7 @@ def BaseCupCost(
     AddScrap = (N_Dcs - N_WBperS) / NoB
     BottomScrap = BW * 0.4
     TotalPaperperCupIncWaste = (OneCup + AddScrap + BottomScrap + BW) * 1.03
-    ScrapGen = (AddScrap + BottomScrap) + (OneCup + AddScrap + BottomScrap + BW) * 0.03
+    ScrapGen = AddScrap + BottomScrap  # + (OneCup + AddScrap + BottomScrap + BW) * 0.03
     TotalPaperCostIncOverhead = TotalPaperperCupIncWaste * PaperRate / 1000 + Overhead
     MarginValue = TotalPaperCostIncOverhead * Margin * 0.01
     NewCost = TotalPaperCostIncOverhead + MarginValue

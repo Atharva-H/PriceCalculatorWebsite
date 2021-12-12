@@ -1,0 +1,65 @@
+{
+  "athmkrt": {
+    "company_name": "Atharva Marketing",
+    "company_add": "98, Santosh Nagar,\n Indore Road, Khandwa,\n 450001 M.P. India",
+    "buyer_name": "Atharva Humar",
+    "buyer_info": "Cell: +91-9424455226,\n Phone: 0733-2243160, \n Email: atharva2000humar@gmail.com",
+    "tandc": "1\n2\n3\n4\n5"
+  },
+  "athmkr": {
+    "CompanyName": ["sad"],
+    "CompanyAdd": ["a"],
+    "BuyerName": ["sad"],
+    "Buyerinfo": ["sad"],
+    "tandc": ["asd"]
+  },
+  "athmk": {
+    "CompanyName": [["sad"]],
+    "CompanyAdd": ["a"],
+    "BuyerName": ["sad"],
+    "Buyerinfo": ["sad"],
+    "tandc": ["asd"]
+  },
+  "athm": {
+    "CompanyName": "('sad',)",
+    "CompanyAdd": ["a"],
+    "BuyerName": ["sad"],
+    "Buyerinfo": ["sad"],
+    "tandc": ["asd"]
+  },
+  "ath": {
+    "CompanyName": "('sad',)",
+    "CompanyAdd": ["a"],
+    "BuyerName": ["sad"],
+    "Buyerinfo": ["sad"],
+    "tandc": ["asd"]
+  },
+  "at": {
+    "CompanyName": "sad",
+    "CompanyAdd": "a",
+    "BuyerName": "sad",
+    "Buyerinfo": "sad",
+    "tandc": "asd"
+  },
+  "a": {
+    "CompanyName": "sad",
+    "CompanyAdd": "a",
+    "BuyerName": "sad",
+    "Buyerinfo": "sad",
+    "tandc": "asd"
+  },
+  "b": {
+    "CompanyName": "sad",
+    "CompanyAdd": "a\r\np\r\nq",
+    "BuyerName": "sad",
+    "Buyerinfo": "sad",
+    "tandc": "1.asd\r\n2.\r\n3.\r\n4.\r\n5."
+  },
+  "bc": {
+    "CompanyName": "dsf",
+    "CompanyAdd": "a\r\nb\r\nc",
+    "BuyerName": "dsf",
+    "Buyerinfo": "q\r\nw\r\ne",
+    "tandc": "z\r\nx\r\nc\r\nv\r\nb"
+  }
+}

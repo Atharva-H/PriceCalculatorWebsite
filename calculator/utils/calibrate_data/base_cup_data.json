@@ -1,1 +1,162 @@
-{"40": {"GSM": 999.0, "Die Cup Sheet": 21.0, "Number of Blanks per Sheet": 41.0, "Wt. Blanks per Sheet": 61.0, "Bottom": 81.0, "Over heads": 101.0}, "55": {"GSM": 2.0, "Die Cup Sheet": 22.0, "Number of Blanks per Sheet": 42.0, "Wt. Blanks per Sheet": 62.0, "Bottom": 82.0, "Over heads": 102.0}, "65": {"GSM": 3.0, "Die Cup Sheet": 23.0, "Number of Blanks per Sheet": 43.0, "Wt. Blanks per Sheet": 63.0, "Bottom": 83.0, "Over heads": 103.0}, "75": {"GSM": 4.0, "Die Cup Sheet": 24.0, "Number of Blanks per Sheet": 44.0, "Wt. Blanks per Sheet": 64.0, "Bottom": 84.0, "Over heads": 104.0}, "85": {"GSM": 5.0, "Die Cup Sheet": 25.0, "Number of Blanks per Sheet": 45.0, "Wt. Blanks per Sheet": 65.0, "Bottom": 85.0, "Over heads": 105.0}, "90": {"GSM": 6.0, "Die Cup Sheet": 26.0, "Number of Blanks per Sheet": 46.0, "Wt. Blanks per Sheet": 66.0, "Bottom": 86.0, "Over heads": 106.0}, "100": {"GSM": 7.0, "Die Cup Sheet": 27.0, "Number of Blanks per Sheet": 47.0, "Wt. Blanks per Sheet": 67.0, "Bottom": 87.0, "Over heads": 107.0}, "100SB": {"GSM": 8.0, "Die Cup Sheet": 28.0, "Number of Blanks per Sheet": 48.0, "Wt. Blanks per Sheet": 68.0, "Bottom": 88.0, "Over heads": 108.0}, "120SB": {"GSM": 9.0, "Die Cup Sheet": 29.0, "Number of Blanks per Sheet": 49.0, "Wt. Blanks per Sheet": 69.0, "Bottom": 89.0, "Over heads": 109.0}, "125": {"GSM": 10.0, "Die Cup Sheet": 30.0, "Number of Blanks per Sheet": 50.0, "Wt. Blanks per Sheet": 70.0, "Bottom": 90.0, "Over heads": 110.0}, "130": {"GSM": 11.0, "Die Cup Sheet": 31.0, "Number of Blanks per Sheet": 51.0, "Wt. Blanks per Sheet": 71.0, "Bottom": 91.0, "Over heads": 111.0}, "150": {"GSM": 12.0, "Die Cup Sheet": 32.0, "Number of Blanks per Sheet": 52.0, "Wt. Blanks per Sheet": 72.0, "Bottom": 92.0, "Over heads": 112.0}, "150SB": {"GSM": 13.0, "Die Cup Sheet": 33.0, "Number of Blanks per Sheet": 53.0, "Wt. Blanks per Sheet": 73.0, "Bottom": 93.0, "Over heads": 113.0}, "170": {"GSM": 14.0, "Die Cup Sheet": 34.0, "Number of Blanks per Sheet": 54.0, "Wt. Blanks per Sheet": 74.0, "Bottom": 94.0, "Over heads": 114.0}, "200": {"GSM": 15.0, "Die Cup Sheet": 35.0, "Number of Blanks per Sheet": 55.0, "Wt. Blanks per Sheet": 75.0, "Bottom": 95.0, "Over heads": 115.0}, "200SB": {"GSM": 16.0, "Die Cup Sheet": 36.0, "Number of Blanks per Sheet": 56.0, "Wt. Blanks per Sheet": 76.0, "Bottom": 96.0, "Over heads": 116.0}, "8Oz": {"GSM": 17.0, "Die Cup Sheet": 37.0, "Number of Blanks per Sheet": 57.0, "Wt. Blanks per Sheet": 77.0, "Bottom": 97.0, "Over heads": 117.0}, "250": {"GSM": 18.0, "Die Cup Sheet": 38.0, "Number of Blanks per Sheet": 58.0, "Wt. Blanks per Sheet": 78.0, "Bottom": 98.0, "Over heads": 118.0}, "300": {"GSM": 19.0, "Die Cup Sheet": 39.0, "Number of Blanks per Sheet": 59.0, "Wt. Blanks per Sheet": 79.0, "Bottom": 99.0, "Over heads": 119.0}, "330": {"GSM": 20.0, "Die Cup Sheet": 40.0, "Number of Blanks per Sheet": 60.0, "Wt. Blanks per Sheet": 80.0, "Bottom": 100.0, "Over heads": 120.0}}
+{
+  "40": {
+    "GSM": 152.0,
+    "Die Cup Sheet": 49.98,
+    "Number of Blanks per Sheet": 48.0,
+    "Wt. Blanks per Sheet": 49.1,
+    "Bottom": 0.27,
+    "Over heads": 0.07
+  },
+  "55": {
+    "GSM": 152.0,
+    "Die Cup Sheet": 56.02,
+    "Number of Blanks per Sheet": 48.0,
+    "Wt. Blanks per Sheet": 54.4,
+    "Bottom": 0.27,
+    "Over heads": 0.07
+  },
+  "65": {
+    "GSM": 152.0,
+    "Die Cup Sheet": 75.92,
+    "Number of Blanks per Sheet": 60.0,
+    "Wt. Blanks per Sheet": 74.1,
+    "Bottom": 0.32,
+    "Over heads": 0.07
+  },
+  "75": {
+    "GSM": 162.0,
+    "Die Cup Sheet": 61.18,
+    "Number of Blanks per Sheet": 40.0,
+    "Wt. Blanks per Sheet": 58.1,
+    "Bottom": 0.38,
+    "Over heads": 0.07
+  },
+  "85": {
+    "GSM": 152.0,
+    "Die Cup Sheet": 104.8,
+    "Number of Blanks per Sheet": 72.0,
+    "Wt. Blanks per Sheet": 101.9,
+    "Bottom": 0.32,
+    "Over heads": 0.07
+  },
+  "90": {
+    "GSM": 162.0,
+    "Die Cup Sheet": 101.92,
+    "Number of Blanks per Sheet": 50.0,
+    "Wt. Blanks per Sheet": 96.82,
+    "Bottom": 0.32,
+    "Over heads": 0.08
+  },
+  "100": {
+    "GSM": 172.0,
+    "Die Cup Sheet": 100.96,
+    "Number of Blanks per Sheet": 48.0,
+    "Wt. Blanks per Sheet": 96.76,
+    "Bottom": 0.51,
+    "Over heads": 0.075
+  },
+  "100SB": {
+    "GSM": 152.0,
+    "Die Cup Sheet": 66.86,
+    "Number of Blanks per Sheet": 40.0,
+    "Wt. Blanks per Sheet": 64.46,
+    "Bottom": 0.38,
+    "Over heads": 0.09
+  },
+  "120SB": {
+    "GSM": 9.0,
+    "Die Cup Sheet": 29.0,
+    "Number of Blanks per Sheet": 49.0,
+    "Wt. Blanks per Sheet": 69.0,
+    "Bottom": 89.0,
+    "Over heads": 109.0
+  },
+  "125": {
+    "GSM": 172.0,
+    "Die Cup Sheet": 72.64,
+    "Number of Blanks per Sheet": 50.0,
+    "Wt. Blanks per Sheet": 68.46,
+    "Bottom": 0.51,
+    "Over heads": 0.08
+  },
+  "130": {
+    "GSM": 177.0,
+    "Die Cup Sheet": 56.72,
+    "Number of Blanks per Sheet": 24.0,
+    "Wt. Blanks per Sheet": 53.98,
+    "Bottom": 0.51,
+    "Over heads": 0.09
+  },
+  "150": {
+    "GSM": 195.0,
+    "Die Cup Sheet": 117.2,
+    "Number of Blanks per Sheet": 40.0,
+    "Wt. Blanks per Sheet": 11.64,
+    "Bottom": 0.51,
+    "Over heads": 0.09
+  },
+  "150SB": {
+    "GSM": 172.0,
+    "Die Cup Sheet": 68.96,
+    "Number of Blanks per Sheet": 30.0,
+    "Wt. Blanks per Sheet": 65.72,
+    "Bottom": 0.38,
+    "Over heads": 0.09
+  },
+  "170": {
+    "GSM": 177.0,
+    "Die Cup Sheet": 86.3,
+    "Number of Blanks per Sheet": 24.0,
+    "Wt. Blanks per Sheet": 80.94,
+    "Bottom": 0.51,
+    "Over heads": 0.09
+  },
+  "200": {
+    "GSM": 202.0,
+    "Die Cup Sheet": 96.52,
+    "Number of Blanks per Sheet": 24.0,
+    "Wt. Blanks per Sheet": 87.72,
+    "Bottom": 0.51,
+    "Over heads": 0.12
+  },
+  "200SB": {
+    "GSM": 175.0,
+    "Die Cup Sheet": 73.84,
+    "Number of Blanks per Sheet": 24.0,
+    "Wt. Blanks per Sheet": 72.28,
+    "Bottom": 0.38,
+    "Over heads": 0.1
+  },
+  "8Oz": {
+    "GSM": 240.0,
+    "Die Cup Sheet": 97.28,
+    "Number of Blanks per Sheet": 16.0,
+    "Wt. Blanks per Sheet": 87.24,
+    "Bottom": 0.652,
+    "Over heads": 0.12
+  },
+  "250": {
+    "GSM": 202.0,
+    "Die Cup Sheet": 154.58,
+    "Number of Blanks per Sheet": 32.0,
+    "Wt. Blanks per Sheet": 140.74,
+    "Bottom": 0.51,
+    "Over heads": 0.12
+  },
+  "300": {
+    "GSM": 225.0,
+    "Die Cup Sheet": 142.34,
+    "Number of Blanks per Sheet": 24.0,
+    "Wt. Blanks per Sheet": 127.78,
+    "Bottom": 0.51,
+    "Over heads": 0.12
+  },
+  "330": {
+    "GSM": 225.0,
+    "Die Cup Sheet": 84.9,
+    "Number of Blanks per Sheet": 12.0,
+    "Wt. Blanks per Sheet": 74.82,
+    "Bottom": 0.51,
+    "Over heads": 0.12
+  }
+}

@@ -1,1349 +1,1332 @@
-<html>
-  <header>
-    <title>Calibrate</title>
-    <link rel="stylesheet" href="styles\header.css" />
-  </header>
-  <body>
-    <header class="site-header">
-      <div class="wrapper site-header__wrapper">
-        <a href="/home" class="brand">Paricott Calculator</a>
-        <nav class="nav">
-          <ul class="nav__wrapper">
-            <li class="nav__item"><a href="/home">Home</a></li>
-            <li class="nav__item"><a href="/base">Basecup Cost</a></li>
-            <li class="nav__item"><a href="/packcost">SKU Cost</a></li>
-            <li class="nav__item"><a href="/topdf">To PDF</a></li>
-            <li class="nav__item"><a href="/calib">Calibrate</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <form action="calib" method="post">
-      {% csrf_token %}
-      <table>
-        <tr>
-          <th>Calibrate</th>
-          <th>40ml</th>
-          <th>55ml</th>
-          <th>65ml</th>
-          <th>75ml</th>
-          <th>85ml</th>
-          <th>90ml</th>
-          <th>100ml</th>
-          <th>100ml SB</th>
-          <th>120ml SB</th>
-          <th>125ml</th>
-          <th>130ml</th>
-          <th>150ml</th>
-          <th>150ml SB</th>
-          <th>170ml</th>
-          <th>200ml</th>
-          <th>200ml SB</th>
-          <th>8 Oz</th>
-          <th>250ml</th>
-          <th>300ml</th>
-          <th>330ml</th>
-        </tr>
-        <tr>
-          <td>GSM</td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="40GSM"
-              id="40GSM"
-              maxlength="6"
-              size="5"
-              value="{{40GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="55GSM"
-              id="55GSM"
-              maxlength="6"
-              size="5"
-              value="{{55GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="65GSM"
-              id="65GSM"
-              maxlength="6"
-              size="5"
-              value="{{65GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="75GSM"
-              id="75GSM"
-              maxlength="6"
-              size="5"
-              value="{{75GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="85GSM"
-              id="85GSM"
-              maxlength="6"
-              size="5"
-              value="{{85GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="90GSM"
-              id="90GSM"
-              maxlength="6"
-              size="5"
-              value="{{90GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="100GSM"
-              id="100GSM"
-              maxlength="6"
-              size="5"
-              value="{{100GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="100SBGSM"
-              id="100SBGSM"
-              maxlength="6"
-              size="5"
-              value="{{100SBGS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="120SBGSM"
-              id="120SBGSM"
-              maxlength="6"
-              size="5"
-              value="{{120SBGS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="125GSM"
-              id="125GSM"
-              maxlength="6"
-              size="5"
-              value="{{125GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="130GSM"
-              id="130GSM"
-              maxlength="6"
-              size="5"
-              value="{{130GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="150GSM"
-              id="150GSM"
-              maxlength="6"
-              size="5"
-              value="{{150GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="150SBGSM"
-              id="150SBGSM"
-              maxlength="6"
-              size="5"
-              value="{{150SBGS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="170GSM"
-              id="170GSM"
-              maxlength="6"
-              size="5"
-              value="{{170GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="200GSM"
-              id="200GSM"
-              maxlength="6"
-              size="5"
-              value="{{200GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="200SBGSM"
-              id="200SBGSM"
-              maxlength="6"
-              size="5"
-              value="{{200SBGS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="8OzGSM"
-              id="8OzGSM"
-              maxlength="6"
-              size="5"
-              value="{{8OzGS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="250GSM"
-              id="250GSM"
-              maxlength="6"
-              size="5"
-              value="{{250GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="300GSM"
-              id="300GSM"
-              maxlength="6"
-              size="5"
-              value="{{300GS}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="330GSM"
-              id="330GSM"
-              maxlength="6"
-              size="5"
-              value="{{330GS}}"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Die Cup Sheet</td>
-          <td>
-            <input
-              type="text"
-              name="40Die Cup Sheet"
-              id="40Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{40Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="55Die Cup Sheet"
-              id="55Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{55Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="65Die Cup Sheet"
-              id="65Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{65Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="75Die Cup Sheet"
-              id="75Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{75Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="85Die Cup Sheet"
-              id="85Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{85Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="90Die Cup Sheet"
-              id="90Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{90Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="100Die Cup Sheet"
-              id="100Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{100Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="100SBDie Cup Sheet"
-              id="100SBDie Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{100SBDi}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="120SBDie Cup Sheet"
-              id="120SBDie Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{120SBDi}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="125Die Cup Sheet"
-              id="125Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{125Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="130Die Cup Sheet"
-              id="130Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{130Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="150Die Cup Sheet"
-              id="150Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{150Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="150SBDie Cup Sheet"
-              id="150SBDie Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{150SBDi}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="170Die Cup Sheet"
-              id="170Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{170Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="200Die Cup Sheet"
-              id="200Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{200Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="200SBDie Cup Sheet"
-              id="200SBDie Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{200SBDi}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="8OzDie Cup Sheet"
-              id="8OzDie Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{8OzDi}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="250Die Cup Sheet"
-              id="250Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{250Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="300Die Cup Sheet"
-              id="300Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{300Di}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="330Die Cup Sheet"
-              id="330Die Cup Sheet"
-              maxlength="6"
-              size="5"
-              value="{{330Di}}"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Number of Blanks per Sheet</td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="40Number of Blanks per Sheet"
-              id="40Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{40Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="55Number of Blanks per Sheet"
-              id="55Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{55Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="65Number of Blanks per Sheet"
-              id="65Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{65Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="75Number of Blanks per Sheet"
-              id="75Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{75Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="85Number of Blanks per Sheet"
-              id="85Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{85Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="90Number of Blanks per Sheet"
-              id="90Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{90Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="100Number of Blanks per Sheet"
-              id="100Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{100Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="100SBNumber of Blanks per Sheet"
-              id="100SBNumber of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{100SBNu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="120SBNumber of Blanks per Sheet"
-              id="120SBNumber of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{120SBNu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="125Number of Blanks per Sheet"
-              id="125Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{125Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="130Number of Blanks per Sheet"
-              id="130Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{130Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="150Number of Blanks per Sheet"
-              id="150Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{150Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="150SBNumber of Blanks per Sheet"
-              id="150SBNumber of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{150SBNu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="170Number of Blanks per Sheet"
-              id="170Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{170Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="200Number of Blanks per Sheet"
-              id="200Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{200Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="200SBNumber of Blanks per Sheet"
-              id="200SBNumber of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{200SBNu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="8OzNumber of Blanks per Sheet"
-              id="8OzNumber of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{8OzNu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="250Number of Blanks per Sheet"
-              id="250Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{250Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="300Number of Blanks per Sheet"
-              id="300Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{300Nu}}"
-            />
-          </td>
-          <td>
-            <input
-              type="number"
-              max="999"
-              min="1"
-              name="330Number of Blanks per Sheet"
-              id="330Number of Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{330Nu}}"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Wt. Blanks per Sheet</td>
-          <td>
-            <input
-              type="text"
-              name="40Wt. Blanks per Sheet"
-              id="40Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{40Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="55Wt. Blanks per Sheet"
-              id="55Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{55Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="65Wt. Blanks per Sheet"
-              id="65Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{65Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="75Wt. Blanks per Sheet"
-              id="75Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{75Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="85Wt. Blanks per Sheet"
-              id="85Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{85Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="90Wt. Blanks per Sheet"
-              id="90Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{90Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="100Wt. Blanks per Sheet"
-              id="100Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{100Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="100SBWt. Blanks per Sheet"
-              id="100SBWt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{100SBWt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="120SBWt. Blanks per Sheet"
-              id="120SBWt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{120SBWt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="125Wt. Blanks per Sheet"
-              id="125Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{125Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="130Wt. Blanks per Sheet"
-              id="130Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{130Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="150Wt. Blanks per Sheet"
-              id="150Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{150Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="150SBWt. Blanks per Sheet"
-              id="150SBWt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{150SBWt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="170Wt. Blanks per Sheet"
-              id="170Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{170Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="200Wt. Blanks per Sheet"
-              id="200Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{200Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="200SBWt. Blanks per Sheet"
-              id="200SBWt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{200SBWt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="8OzWt. Blanks per Sheet"
-              id="8OzWt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{8OzWt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="250Wt. Blanks per Sheet"
-              id="250Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{250Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="300Wt. Blanks per Sheet"
-              id="300Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{300Wt}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="330Wt. Blanks per Sheet"
-              id="330Wt. Blanks per Sheet"
-              maxlength="6"
-              size="5"
-              value="{{330Wt}}"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Bottom</td>
-          <td>
-            <input
-              type="text"
-              name="40Bottom"
-              id="40Bottom"
-              maxlength="6"
-              size="5"
-              value="{{40Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="55Bottom"
-              id="55Bottom"
-              maxlength="6"
-              size="5"
-              value="{{55Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="65Bottom"
-              id="65Bottom"
-              maxlength="6"
-              size="5"
-              value="{{65Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="75Bottom"
-              id="75Bottom"
-              maxlength="6"
-              size="5"
-              value="{{75Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="85Bottom"
-              id="85Bottom"
-              maxlength="6"
-              size="5"
-              value="{{85Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="90Bottom"
-              id="90Bottom"
-              maxlength="6"
-              size="5"
-              value="{{90Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="100Bottom"
-              id="100Bottom"
-              maxlength="6"
-              size="5"
-              value="{{100Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="100SBBottom"
-              id="100SBBottom"
-              maxlength="6"
-              size="5"
-              value="{{100SBBo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="120SBBottom"
-              id="120SBBottom"
-              maxlength="6"
-              size="5"
-              value="{{120SBBo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="125Bottom"
-              id="125Bottom"
-              maxlength="6"
-              size="5"
-              value="{{125Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="130Bottom"
-              id="130Bottom"
-              maxlength="6"
-              size="5"
-              value="{{130Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="150Bottom"
-              id="150Bottom"
-              maxlength="6"
-              size="5"
-              value="{{150Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="150SBBottom"
-              id="150SBBottom"
-              maxlength="6"
-              size="5"
-              value="{{150SBBo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="170Bottom"
-              id="170Bottom"
-              maxlength="6"
-              size="5"
-              value="{{170Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="200Bottom"
-              id="200Bottom"
-              maxlength="6"
-              size="5"
-              value="{{200Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="200SBBottom"
-              id="200SBBottom"
-              maxlength="6"
-              size="5"
-              value="{{200SBBo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="8OzBottom"
-              id="8OzBottom"
-              maxlength="6"
-              size="5"
-              value="{{8OzBo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="250Bottom"
-              id="250Bottom"
-              maxlength="6"
-              size="5"
-              value="{{250Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="300Bottom"
-              id="300Bottom"
-              maxlength="6"
-              size="5"
-              value="{{300Bo}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="330Bottom"
-              id="330Bottom"
-              maxlength="6"
-              size="5"
-              value="{{330Bo}}"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Over heads per Cup (Rs.)</td>
-          <td>
-            <input
-              type="text"
-              name="40Over heads"
-              id="40Over heads"
-              maxlength="6"
-              size="5"
-              value="{{40Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="55Over heads"
-              id="55Over heads"
-              maxlength="6"
-              size="5"
-              value="{{55Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="65Over heads"
-              id="65Over heads"
-              maxlength="6"
-              size="5"
-              value="{{65Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="75Over heads"
-              id="75Over heads"
-              maxlength="6"
-              size="5"
-              value="{{75Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="85Over heads"
-              id="85Over heads"
-              maxlength="6"
-              size="5"
-              value="{{85Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="90Over heads"
-              id="90Over heads"
-              maxlength="6"
-              size="5"
-              value="{{90Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="100Over heads"
-              id="100Over heads"
-              maxlength="6"
-              size="5"
-              value="{{100Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="100SBOver heads"
-              id="100SBOver heads"
-              maxlength="6"
-              size="5"
-              value="{{100SBOv}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="120SBOver heads"
-              id="120SBOver heads"
-              maxlength="6"
-              size="5"
-              value="{{120SBOv}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="125Over heads"
-              id="125Over heads"
-              maxlength="6"
-              size="5"
-              value="{{125Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="130Over heads"
-              id="130Over heads"
-              maxlength="6"
-              size="5"
-              value="{{130Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="150Over heads"
-              id="150Over heads"
-              maxlength="6"
-              size="5"
-              value="{{150Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="150SBOver heads"
-              id="150SBOver heads"
-              maxlength="6"
-              size="5"
-              value="{{150SBOv}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="170Over heads"
-              id="170Over heads"
-              maxlength="6"
-              size="5"
-              value="{{170Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="200Over heads"
-              id="200Over heads"
-              maxlength="6"
-              size="5"
-              value="{{200Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="200SBOver heads"
-              id="200SBOver heads"
-              maxlength="6"
-              size="5"
-              value="{{200SBOv}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="8OzOver heads"
-              id="8OzOver heads"
-              maxlength="6"
-              size="5"
-              value="{{8OzOv}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="250Over heads"
-              id="250Over heads"
-              maxlength="6"
-              size="5"
-              value="{{250Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="300Over heads"
-              id="300Over heads"
-              maxlength="6"
-              size="5"
-              value="{{300Ov}}"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              name="330Over heads"
-              id="330Over heads"
-              maxlength="6"
-              size="5"
-              value="{{330Ov}}"
-            />
-          </td>
-        </tr>
-      </table>
-      <input type="submit" value="Calibrate" />
-    </form>
-  </body>
-</html>
+{%extends 'base.html'%} {% block content%}
+<title>PARICOTT | Calib</title>
+{% load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'topdf.css' %}" />
+<form action="calib" method="post">
+  {% csrf_token %}
+  <table>
+    <tr>
+      <th>Calibrate</th>
+      <th>40ml</th>
+      <th>55ml</th>
+      <th>65ml</th>
+      <th>75ml</th>
+      <th>85ml</th>
+      <th>90ml</th>
+      <th>100ml</th>
+      <th>100ml SB</th>
+      <th>120ml SB</th>
+      <th>125ml</th>
+      <th>130ml</th>
+      <th>150ml</th>
+      <th>150ml SB</th>
+      <th>170ml</th>
+      <th>200ml</th>
+      <th>200ml SB</th>
+      <th>8 Oz</th>
+      <th>250ml</th>
+      <th>300ml</th>
+      <th>330ml</th>
+    </tr>
+    <tr>
+      <td>GSM</td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="40GSM"
+          id="40GSM"
+          maxlength="6"
+          size="5"
+          value="{{40GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="55GSM"
+          id="55GSM"
+          maxlength="6"
+          size="5"
+          value="{{55GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="65GSM"
+          id="65GSM"
+          maxlength="6"
+          size="5"
+          value="{{65GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="75GSM"
+          id="75GSM"
+          maxlength="6"
+          size="5"
+          value="{{75GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="85GSM"
+          id="85GSM"
+          maxlength="6"
+          size="5"
+          value="{{85GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="90GSM"
+          id="90GSM"
+          maxlength="6"
+          size="5"
+          value="{{90GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="100GSM"
+          id="100GSM"
+          maxlength="6"
+          size="5"
+          value="{{100GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="100SBGSM"
+          id="100SBGSM"
+          maxlength="6"
+          size="5"
+          value="{{100SBGS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="120SBGSM"
+          id="120SBGSM"
+          maxlength="6"
+          size="5"
+          value="{{120SBGS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="125GSM"
+          id="125GSM"
+          maxlength="6"
+          size="5"
+          value="{{125GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="130GSM"
+          id="130GSM"
+          maxlength="6"
+          size="5"
+          value="{{130GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="150GSM"
+          id="150GSM"
+          maxlength="6"
+          size="5"
+          value="{{150GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="150SBGSM"
+          id="150SBGSM"
+          maxlength="6"
+          size="5"
+          value="{{150SBGS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="170GSM"
+          id="170GSM"
+          maxlength="6"
+          size="5"
+          value="{{170GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="200GSM"
+          id="200GSM"
+          maxlength="6"
+          size="5"
+          value="{{200GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="200SBGSM"
+          id="200SBGSM"
+          maxlength="6"
+          size="5"
+          value="{{200SBGS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="8OzGSM"
+          id="8OzGSM"
+          maxlength="6"
+          size="5"
+          value="{{8OzGS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="250GSM"
+          id="250GSM"
+          maxlength="6"
+          size="5"
+          value="{{250GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="300GSM"
+          id="300GSM"
+          maxlength="6"
+          size="5"
+          value="{{300GS}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="330GSM"
+          id="330GSM"
+          maxlength="6"
+          size="5"
+          value="{{330GS}}"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Die Cup Sheet</td>
+      <td>
+        <input
+          type="text"
+          name="40Die Cup Sheet"
+          id="40Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{40Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="55Die Cup Sheet"
+          id="55Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{55Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="65Die Cup Sheet"
+          id="65Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{65Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="75Die Cup Sheet"
+          id="75Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{75Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="85Die Cup Sheet"
+          id="85Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{85Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="90Die Cup Sheet"
+          id="90Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{90Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="100Die Cup Sheet"
+          id="100Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{100Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="100SBDie Cup Sheet"
+          id="100SBDie Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{100SBDi}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="120SBDie Cup Sheet"
+          id="120SBDie Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{120SBDi}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="125Die Cup Sheet"
+          id="125Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{125Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="130Die Cup Sheet"
+          id="130Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{130Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="150Die Cup Sheet"
+          id="150Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{150Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="150SBDie Cup Sheet"
+          id="150SBDie Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{150SBDi}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="170Die Cup Sheet"
+          id="170Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{170Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="200Die Cup Sheet"
+          id="200Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{200Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="200SBDie Cup Sheet"
+          id="200SBDie Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{200SBDi}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="8OzDie Cup Sheet"
+          id="8OzDie Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{8OzDi}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="250Die Cup Sheet"
+          id="250Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{250Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="300Die Cup Sheet"
+          id="300Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{300Di}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="330Die Cup Sheet"
+          id="330Die Cup Sheet"
+          maxlength="6"
+          size="5"
+          value="{{330Di}}"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Number of Blanks per Sheet</td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="40Number of Blanks per Sheet"
+          id="40Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{40Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="55Number of Blanks per Sheet"
+          id="55Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{55Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="65Number of Blanks per Sheet"
+          id="65Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{65Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="75Number of Blanks per Sheet"
+          id="75Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{75Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="85Number of Blanks per Sheet"
+          id="85Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{85Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="90Number of Blanks per Sheet"
+          id="90Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{90Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="100Number of Blanks per Sheet"
+          id="100Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{100Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="100SBNumber of Blanks per Sheet"
+          id="100SBNumber of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{100SBNu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="120SBNumber of Blanks per Sheet"
+          id="120SBNumber of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{120SBNu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="125Number of Blanks per Sheet"
+          id="125Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{125Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="130Number of Blanks per Sheet"
+          id="130Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{130Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="150Number of Blanks per Sheet"
+          id="150Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{150Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="150SBNumber of Blanks per Sheet"
+          id="150SBNumber of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{150SBNu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="170Number of Blanks per Sheet"
+          id="170Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{170Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="200Number of Blanks per Sheet"
+          id="200Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{200Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="200SBNumber of Blanks per Sheet"
+          id="200SBNumber of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{200SBNu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="8OzNumber of Blanks per Sheet"
+          id="8OzNumber of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{8OzNu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="250Number of Blanks per Sheet"
+          id="250Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{250Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="300Number of Blanks per Sheet"
+          id="300Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{300Nu}}"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          max="999"
+          min="1"
+          name="330Number of Blanks per Sheet"
+          id="330Number of Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{330Nu}}"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Wt. Blanks per Sheet</td>
+      <td>
+        <input
+          type="text"
+          name="40Wt. Blanks per Sheet"
+          id="40Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{40Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="55Wt. Blanks per Sheet"
+          id="55Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{55Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="65Wt. Blanks per Sheet"
+          id="65Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{65Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="75Wt. Blanks per Sheet"
+          id="75Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{75Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="85Wt. Blanks per Sheet"
+          id="85Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{85Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="90Wt. Blanks per Sheet"
+          id="90Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{90Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="100Wt. Blanks per Sheet"
+          id="100Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{100Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="100SBWt. Blanks per Sheet"
+          id="100SBWt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{100SBWt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="120SBWt. Blanks per Sheet"
+          id="120SBWt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{120SBWt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="125Wt. Blanks per Sheet"
+          id="125Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{125Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="130Wt. Blanks per Sheet"
+          id="130Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{130Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="150Wt. Blanks per Sheet"
+          id="150Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{150Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="150SBWt. Blanks per Sheet"
+          id="150SBWt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{150SBWt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="170Wt. Blanks per Sheet"
+          id="170Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{170Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="200Wt. Blanks per Sheet"
+          id="200Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{200Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="200SBWt. Blanks per Sheet"
+          id="200SBWt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{200SBWt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="8OzWt. Blanks per Sheet"
+          id="8OzWt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{8OzWt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="250Wt. Blanks per Sheet"
+          id="250Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{250Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="300Wt. Blanks per Sheet"
+          id="300Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{300Wt}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="330Wt. Blanks per Sheet"
+          id="330Wt. Blanks per Sheet"
+          maxlength="6"
+          size="5"
+          value="{{330Wt}}"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Bottom</td>
+      <td>
+        <input
+          type="text"
+          name="40Bottom"
+          id="40Bottom"
+          maxlength="6"
+          size="5"
+          value="{{40Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="55Bottom"
+          id="55Bottom"
+          maxlength="6"
+          size="5"
+          value="{{55Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="65Bottom"
+          id="65Bottom"
+          maxlength="6"
+          size="5"
+          value="{{65Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="75Bottom"
+          id="75Bottom"
+          maxlength="6"
+          size="5"
+          value="{{75Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="85Bottom"
+          id="85Bottom"
+          maxlength="6"
+          size="5"
+          value="{{85Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="90Bottom"
+          id="90Bottom"
+          maxlength="6"
+          size="5"
+          value="{{90Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="100Bottom"
+          id="100Bottom"
+          maxlength="6"
+          size="5"
+          value="{{100Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="100SBBottom"
+          id="100SBBottom"
+          maxlength="6"
+          size="5"
+          value="{{100SBBo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="120SBBottom"
+          id="120SBBottom"
+          maxlength="6"
+          size="5"
+          value="{{120SBBo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="125Bottom"
+          id="125Bottom"
+          maxlength="6"
+          size="5"
+          value="{{125Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="130Bottom"
+          id="130Bottom"
+          maxlength="6"
+          size="5"
+          value="{{130Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="150Bottom"
+          id="150Bottom"
+          maxlength="6"
+          size="5"
+          value="{{150Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="150SBBottom"
+          id="150SBBottom"
+          maxlength="6"
+          size="5"
+          value="{{150SBBo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="170Bottom"
+          id="170Bottom"
+          maxlength="6"
+          size="5"
+          value="{{170Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="200Bottom"
+          id="200Bottom"
+          maxlength="6"
+          size="5"
+          value="{{200Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="200SBBottom"
+          id="200SBBottom"
+          maxlength="6"
+          size="5"
+          value="{{200SBBo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="8OzBottom"
+          id="8OzBottom"
+          maxlength="6"
+          size="5"
+          value="{{8OzBo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="250Bottom"
+          id="250Bottom"
+          maxlength="6"
+          size="5"
+          value="{{250Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="300Bottom"
+          id="300Bottom"
+          maxlength="6"
+          size="5"
+          value="{{300Bo}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="330Bottom"
+          id="330Bottom"
+          maxlength="6"
+          size="5"
+          value="{{330Bo}}"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Over heads per Cup (Rs.)</td>
+      <td>
+        <input
+          type="text"
+          name="40Over heads"
+          id="40Over heads"
+          maxlength="6"
+          size="5"
+          value="{{40Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="55Over heads"
+          id="55Over heads"
+          maxlength="6"
+          size="5"
+          value="{{55Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="65Over heads"
+          id="65Over heads"
+          maxlength="6"
+          size="5"
+          value="{{65Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="75Over heads"
+          id="75Over heads"
+          maxlength="6"
+          size="5"
+          value="{{75Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="85Over heads"
+          id="85Over heads"
+          maxlength="6"
+          size="5"
+          value="{{85Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="90Over heads"
+          id="90Over heads"
+          maxlength="6"
+          size="5"
+          value="{{90Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="100Over heads"
+          id="100Over heads"
+          maxlength="6"
+          size="5"
+          value="{{100Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="100SBOver heads"
+          id="100SBOver heads"
+          maxlength="6"
+          size="5"
+          value="{{100SBOv}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="120SBOver heads"
+          id="120SBOver heads"
+          maxlength="6"
+          size="5"
+          value="{{120SBOv}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="125Over heads"
+          id="125Over heads"
+          maxlength="6"
+          size="5"
+          value="{{125Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="130Over heads"
+          id="130Over heads"
+          maxlength="6"
+          size="5"
+          value="{{130Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="150Over heads"
+          id="150Over heads"
+          maxlength="6"
+          size="5"
+          value="{{150Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="150SBOver heads"
+          id="150SBOver heads"
+          maxlength="6"
+          size="5"
+          value="{{150SBOv}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="170Over heads"
+          id="170Over heads"
+          maxlength="6"
+          size="5"
+          value="{{170Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="200Over heads"
+          id="200Over heads"
+          maxlength="6"
+          size="5"
+          value="{{200Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="200SBOver heads"
+          id="200SBOver heads"
+          maxlength="6"
+          size="5"
+          value="{{200SBOv}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="8OzOver heads"
+          id="8OzOver heads"
+          maxlength="6"
+          size="5"
+          value="{{8OzOv}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="250Over heads"
+          id="250Over heads"
+          maxlength="6"
+          size="5"
+          value="{{250Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="300Over heads"
+          id="300Over heads"
+          maxlength="6"
+          size="5"
+          value="{{300Ov}}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          name="330Over heads"
+          id="330Over heads"
+          maxlength="6"
+          size="5"
+          value="{{330Ov}}"
+        />
+      </td>
+    </tr>
+  </table>
+  <input type="submit" value="Calibrate" />
+</form>
+{% endblock %}
