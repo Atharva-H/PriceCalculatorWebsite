@@ -6,40 +6,56 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('calculator', '0001_initial'),
+        ("calculator", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BuyerData',
+            name="BuyerData",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('abrv', models.CharField(max_length=15)),
-                ('company_name', models.CharField(max_length=50)),
-                ('company_add', models.TextField()),
-                ('buyer_name', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("abrv", models.CharField(max_length=15)),
+                ("company_name", models.CharField(max_length=50)),
+                ("company_add", models.TextField()),
+                ("buyer_name", models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
-            name='QuotationData',
+            name="QuotationData",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('quotation_ID', models.CharField(max_length=20)),
-                ('abrv', models.CharField(max_length=15)),
-                ('size', models.CharField(max_length=10)),
-                ('gsm', models.IntegerField()),
-                ('paper_rate', models.FloatField()),
-                ('scrape_rate', models.FloatField()),
-                ('margin', models.FloatField()),
-                ('cost_per_cup', models.FloatField()),
-                ('cups_per_sku', models.IntegerField()),
-                ('sku_per_mc', models.IntegerField()),
-                ('print_cost', models.FloatField()),
-                ('mc_cost', models.FloatField()),
-                ('freight_per_container', models.FloatField()),
-                ('mc_per_container', models.IntegerField()),
-                ('dollor_rate', models.FloatField()),
-                ('add_cost_per_sku', models.FloatField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("quotation_ID", models.CharField(max_length=20)),
+                ("abrv", models.CharField(max_length=15)),
+                ("size", models.CharField(max_length=10)),
+                ("gsm", models.IntegerField()),
+                ("paper_rate", models.FloatField()),
+                ("scrape_rate", models.FloatField()),
+                ("margin", models.FloatField()),
+                ("cost_per_cup", models.FloatField()),
+                ("cups_per_sku", models.IntegerField()),
+                ("sku_per_mc", models.IntegerField()),
+                ("print_cost", models.FloatField()),
+                ("mc_cost", models.FloatField()),
+                ("freight_per_container", models.FloatField()),
+                ("mc_per_container", models.IntegerField()),
+                ("dollor_rate", models.FloatField()),
+                ("add_cost_per_sku", models.FloatField()),
             ],
         ),
     ]

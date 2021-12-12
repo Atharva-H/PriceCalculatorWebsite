@@ -21,9 +21,8 @@ from datetime import datetime
 #     height = models.IntegerField()
 
 # class Item(models.Model):
-    
-    
-    
+
+
 #     gsm = models.IntegerField()
 #     paper_rate = models.FloatField()
 #     scrape_rate = models.FloatField()
@@ -55,10 +54,6 @@ from datetime import datetime
 #     quotation_id = models.CharField(max_length=20)
 
 # # class Quotation():
-    
-    
-
-
 
 
 class TestData(models.Model):

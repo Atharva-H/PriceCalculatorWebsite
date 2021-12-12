@@ -128,10 +128,13 @@ def pdf_handler(request):
         ]:
             col = []
             for j in range(3):
-                if i == "TopDia" or i == "BottomDia" or i == "Height":
-                    col.append(dim_Data[request_body[f"size_of_cup{j+1}"][0]][i])
-                else:
-                    col.append(request_body[f"{i}{j+1}"][0])
+                try:
+                    if i == "TopDia" or i == "BottomDia" or i == "Height":
+                        col.append(dim_Data[request_body[f"size_of_cup{j+1}"][0]][i])
+                    else:
+                        col.append(request_body[f"{i}{j+1}"][0])
+                except Exception as e:
+                    print("Exception occurred due to :  ", e)
             data.append(col)
         if request_body["Abrv"][0] in user_data.keys():
             CompName = user_data[request_body["Abrv"][0]]["CompanyName"]

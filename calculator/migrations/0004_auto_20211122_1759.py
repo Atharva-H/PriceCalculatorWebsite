@@ -7,23 +7,27 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('calculator', '0003_alter_quotationdata_abrv'),
+        ("calculator", "0003_alter_quotationdata_abrv"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='buyerdata',
-            name='buyer_info',
-            field=models.TextField(default='info'),
+            model_name="buyerdata",
+            name="buyer_info",
+            field=models.TextField(default="info"),
         ),
         migrations.AlterField(
-            model_name='buyerdata',
-            name='abrv',
-            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='calculator.quotationdata'),
+            model_name="buyerdata",
+            name="abrv",
+            field=models.ForeignKey(
+                blank=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="calculator.quotationdata",
+            ),
         ),
         migrations.AlterField(
-            model_name='quotationdata',
-            name='abrv',
-            field=models.CharField(default='test', max_length=15),
+            model_name="quotationdata",
+            name="abrv",
+            field=models.CharField(default="test", max_length=15),
         ),
     ]

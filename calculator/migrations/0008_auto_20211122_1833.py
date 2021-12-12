@@ -7,65 +7,68 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('calculator', '0007_alter_buyerdata_abrv'),
+        ("calculator", "0007_alter_buyerdata_abrv"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='add_cost_per_sku',
+            model_name="quotationdata",
+            name="add_cost_per_sku",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='cost_per_cup',
+            model_name="quotationdata",
+            name="cost_per_cup",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='cups_per_sku',
+            model_name="quotationdata",
+            name="cups_per_sku",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='dollor_rate',
+            model_name="quotationdata",
+            name="dollor_rate",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='freight_per_container',
+            model_name="quotationdata",
+            name="freight_per_container",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='gsm',
+            model_name="quotationdata",
+            name="gsm",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='margin',
+            model_name="quotationdata",
+            name="margin",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='mc_cost',
+            model_name="quotationdata",
+            name="mc_cost",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='mc_per_container',
+            model_name="quotationdata",
+            name="mc_per_container",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='paper_rate',
+            model_name="quotationdata",
+            name="paper_rate",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='print_cost',
+            model_name="quotationdata",
+            name="print_cost",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='scrape_rate',
+            model_name="quotationdata",
+            name="scrape_rate",
         ),
         migrations.RemoveField(
-            model_name='quotationdata',
-            name='sku_per_mc',
+            model_name="quotationdata",
+            name="sku_per_mc",
         ),
         migrations.AlterField(
-            model_name='buyerdata',
-            name='abrv',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='calculator.quotationdata'),
+            model_name="buyerdata",
+            name="abrv",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to="calculator.quotationdata",
+            ),
         ),
     ]
