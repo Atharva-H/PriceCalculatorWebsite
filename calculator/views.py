@@ -46,17 +46,30 @@ def get_quote_buyer(request):
     if request.method == "GET":
 
         buyer = Buyer.objects.all()
-        last_quote_id = Quotation.objects.last()
+        last_data = {
+            "last_quote_id": Quotation.objects.last(),
+            "Abrv": Buyer.objects.last().buyer_alias,
+            "CompName": Buyer.objects.last().company_name,
+            "CompAdd": Buyer.objects.last().company_address,
+            "BuyerName": Buyer.objects.last().buyer_name,
+            "BuyerDet": "Cell: "
+            + Buyer.objects.last().primary_phone_number
+            + "\r\n"
+            + "Phone: "
+            + Buyer.objects.last().secondary_phone_number
+            + "\r\n"
+            + "Email: "
+            + Buyer.objects.last().email_id,
+            "TandC": Buyer.objects.last().terms_and_conditions,
+        }
+        print(last_data)
 
         buyerlist = []
         for i in buyer:
             buyerlist.append(i.buyer_alias)
+        last_data["buyerlist"] = buyerlist
 
-        return render(
-            request,
-            "getquote_select_buyer.html",
-            {"buyerlist": buyerlist, "last_quote_id": last_quote_id},
-        )
+        return render(request, "getquote_select_buyer.html", last_data)
     if request.method == "POST":
         size = ProductDim.objects.all()
         sizelist = []

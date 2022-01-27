@@ -16,7 +16,6 @@
             type="date"
             name="Date"
             id="Date"
-            placeholder="11-Nov-2021"
             required
           /></td> <td>
           <label for="noQuote">Quote:</label></td> <td>
@@ -30,7 +29,7 @@
         </tr>
         <tr>
           <td><label for="Abrv">Abrv:</label></td>
-          <td><input type="text" name="Abrv" id="Abrv" placeholder="MaxHome" /></td>
+          <td><input type="text" name="Abrv" id="Abrv" placeholder="{{Abrv}}" /></td>
           <td><label for="buyerlist">Or Select  :</label></td>
           <td><select name="buyer" id="buyer" >
             <option value="none" ,disabled selected>Select buyer</option>
@@ -45,7 +44,7 @@
             type="text"
             name="CompanyName"
             id="CompanyName"
-            placeholder="MaxHome Products"
+            placeholder="{{CompName}}"
             
           /></td>
         </tr>
@@ -56,10 +55,7 @@
             id="CompanyAdd"
             cols="30"
             rows="3"
-            
-            placeholder="60,Hoffman Ave | Hauppauge,
-NY 11788
-United States of America"
+            placeholder="{{CompAdd}}"
           ></textarea></td>
         </tr>
         <tr>
@@ -69,7 +65,7 @@ United States of America"
             name="BuyerName"
             id="BuyerName"
             
-            placeholder=" Mr. Hymie S. Dana"
+            placeholder="{{BuyerName}}"
           /></td>
         </tr>
         <tr>
@@ -79,11 +75,8 @@ United States of America"
             id="Buyerinfo"
             cols="30"
             rows="3"
-            
-            placeholder="Cell: +1 (917) 596-1751
-Phone: +1-631.249.8324
-Email: hd@maxhomeproducts.com"
-          ></textarea></td>
+            placeholder="{{BuyerDet}}"
+          >{{BuyerDet}}</textarea></td>
         </tr>
       </table>
 
@@ -95,12 +88,8 @@ Email: hd@maxhomeproducts.com"
         rows="5"
         textContent="hi"
         
-        placeholder="1. Price: FOB Nhava Sheva Port, India
-2. Stuffing at ICD Tihi (Pithampur) or Sea Port Nhava
-Sheva,
-3. Payment: 30% Advance TT
- (Telex of each container after final payment)"
-      ></textarea><br>
+        placeholder="{{TandC}}"
+      >{{TandC}}</textarea><br>
       <input type="submit" value="Next" />
       <br><strong>Result!</strong> <br> 
       Location: {{Generated}}
