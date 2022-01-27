@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'topdf.css' %}" />
 <h2>Calculate Pkg & Transportation Cost</h2>
 <br /><br />
-<form action="packcost" method="post">
+<form action="getquote_3" method="post">
   {% csrf_token %}
   <table>
     <tr>
@@ -151,7 +151,24 @@
       </td>
     </tr>
   </table>
-  <input type="submit" value="Calculate" />
+
+  <input type="hidden" name="Date" value="{{Date}}" />
+  <input type="hidden" name="noQuote" value="{{No_quote}}" />
+  <input type="hidden" name="Abrv" value="{{Abrv}}" />
+  <input type="hidden" name="CompanyName" value="{{CompName}}" />
+  <input type="hidden" name="CompanyAdd" value="{{CompAdd}}" />
+  <input type="hidden" name="BuyerName" value="{{BuyerName}}" />
+  <input type="hidden" name="Buyerinfo" value="{{BuyerDet}}" />
+  <input type="hidden" name="T&C" value="{{TandC}}" />
+  <input type="hidden" name="size_of_cup" value="{{size_of_cup}}" />
+  <input type="hidden" name="gsm" value="{{gsm}}" />
+  <input type="hidden" name="paper_rate" value="{{paper_rate}}" />
+  <input type="hidden" name="scrape_rate" value="{{scrape_rate}}" />
+  <input type="hidden" name="margin" value="{{margin}}" />
+  <input type="hidden" name="base_cup_cost" value="{{base_cup_cost}}" />
+
+  <input type="submit" value="Calculate" name="Calculate" />
+  <input type="submit" value="Next" name="Next" />
 </form>
 <strong>Result!</strong><br />
 Cost of Master Carton ₹{{MCcostinINR}} & ${{MCcostinDollor}} Dollor <br />

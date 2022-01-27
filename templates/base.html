@@ -13,18 +13,26 @@
     <div class="banner">
       <header class="site-header">
         <span class="logo">
-          <img src="{% static 'logo.png' %}" alt="Logo" />
+          <a href="/"><img src="{% static 'logo.png' %}" alt="Logo" /></a>
         </span>
         <nav class="nav-bar">
-          <ul>
-            <!-- <a href="#"><li class="active">USE THIS IF U WANT TO ADD ANY ELEMENT</li></a>-->
-
-            <a href="/"><li class="active">Home</li></a>
-            <a href="/base"><li>Base Cup</li></a>
-            <a href="/packcost"><li>Pack Cost</li></a>
-            <a href="/topdf"><li>To Pdf</li></a>
-            <a href="/calib"><li>Caliberate</li></a>
-          </ul>
+          <!-- <ul class="header-list">
+            <a href="/"><li class="header-list-item">Home</li></a>
+            <a href="/base"><li class="header-list-item">Base Cup</li></a>
+            <a href="/packcost"><li class="header-list-item">Pack Cost</li></a>
+            <a href="/topdf"><li class="header-list-item">To Pdf</li></a>
+            <a href="/calib"><li class="header-list-item">Caliberate</li></a>
+            <a href="/admin/"><li class="header-list-item">Login</li></a>
+          </ul> -->
+          <div class="dropdown">
+            <button class="dropbtn">Cost Calculator</button>
+            <div class="dropdown-content">
+              <a href="/getquote_1">Calculate & Create Quotation</a>
+              <a href="/base">Calculate Base Cup Cost</a>
+              <a href="/packcost">Calculate Pkg & Transportation Cost</a>
+              <a href="/topdf">Create Quotation</a>
+            </div>
+          </div>
         </nav>
       </header>
       <br />

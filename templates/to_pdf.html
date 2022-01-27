@@ -1,140 +1,134 @@
 {%extends 'base.html'%} {% block content%}
 <title>PARICOTT | ToPDF</title>
-<h2>{{Generated}}</h2>
-<form action="topdf" method="post">
-  {% csrf_token %}
-  <td>
-    <label for="Date">Date:</label>
-    <input
-      type="date"
-      name="Date"
-      id="Date"
-      placeholder="11-Nov-2021"
-      required
-    />
-  </td>
-  <td>
-    <label for="noQuote">Quote:</label>
-    <input
-      type="text"
-      name="noQuote"
-      id="noQuote"
-      placeholder="201/21-22"
-      required
-    />
-  </td>
 
-  <div>
-    <label for="Abrv">Abrv:</label>
-    <input type="text" name="Abrv" id="Abrv" placeholder="MaxHome" required />
-  </div>
-  <div>
-    <label for="CompanyName">Company Name:</label>
-    <input
-      type="text"
-      name="CompanyName"
-      id="CompanyName"
-      placeholder="MaxHome Products"
-      required
-    />
-  </div>
-  <div>
-    <label for="CompanyAdd">Company Address:</label>
-    <textarea
-      name="CompanyAdd"
-      id="CompanyAdd"
-      cols="30"
-      rows="3"
-      required
-      placeholder="60,Hoffman Ave | Hauppauge,
+{% load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'topdf.css' %}" />
+<form action="topdf" method="post">
+<h2>Create Quotation</h2>
+<br /><br />
+  {% csrf_token %}
+  <div id="boxes" class="boxes">
+    <div id="leftbox" class="leftbox">
+      <table>
+        <tr>
+          <td><label for="Date">Date:</label></td>
+          <td><input
+            type="date"
+            name="Date"
+            id="Date"
+            placeholder="11-Nov-2021"
+            required
+          /></td> <td>
+          <label for="noQuote">Quote:</label></td> <td>
+            <input
+              type="text"
+              name="noQuote"
+              id="noQuote"
+              placeholder="{{last_quote_id}}"
+              required
+            /></td>
+        </tr>
+        <tr>
+          <td><label for="Abrv">Abrv:</label></td>
+          <td><input type="text" name="Abrv" id="Abrv" placeholder="MaxHome" /></td>
+          <td><label for="buyerlist">Or Select  :</label></td>
+          <td><select name="buyer" id="buyer" >
+            <option value="none" ,disabled selected>Select buyer</option>
+            {%for buyerlist in buyerlist %}
+            <option value="{{buyerlist}}">{{buyerlist}}</option>
+            {%endfor%}
+          </select></td>
+        </tr>
+        <tr>
+          <td><label for="CompanyName">Company Name:</label></td>
+          <td><input
+            type="text"
+            name="CompanyName"
+            id="CompanyName"
+            placeholder="MaxHome Products"
+            
+          /></td>
+        </tr>
+        <tr>
+          <td><label for="CompanyAdd">Company Address:</label></td>
+          <td><textarea
+            name="CompanyAdd"
+            id="CompanyAdd"
+            cols="30"
+            rows="3"
+            
+            placeholder="60,Hoffman Ave | Hauppauge,
 NY 11788
 United States of America"
-    ></textarea>
-  </div>
-  <div>
-    <label for="BuyerName">Buyer Name:</label>
-    <input
-      type="text"
-      name="BuyerName"
-      id="BuyerName"
-      required
-      placeholder=" Mr. Hymie S. Dana"
-    />
-  </div>
-  <div>
-    <label for="Buyerinfo">Buyer info:</label>
-    <textarea
-      name="Buyerinfo"
-      id="Buyerinfo"
-      cols="30"
-      rows="3"
-      required
-      placeholder="Cell: +1 (917) 596-1751
+          ></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="BuyerName">Buyer Name:</label></td>
+          <td><input
+            type="text"
+            name="BuyerName"
+            id="BuyerName"
+            
+            placeholder=" Mr. Hymie S. Dana"
+          /></td>
+        </tr>
+        <tr>
+          <td><label for="Buyerinfo">Buyer info:</label></td>
+          <td><textarea
+            name="Buyerinfo"
+            id="Buyerinfo"
+            cols="30"
+            rows="3"
+            
+            placeholder="Cell: +1 (917) 596-1751
 Phone: +1-631.249.8324
 Email: hd@maxhomeproducts.com"
-    ></textarea>
-  </div>
-  <div>
-    <label for="T&C">Terms & Conditions:</label>
-    <textarea
-      name="T&C"
-      id="T&C"
-      cols="54"
-      rows="5"
-      textContent="hi"
-      required
-      placeholder="1. Price: FOB Nhava Sheva Port, India
+          ></textarea></td>
+        </tr>
+      </table>
+
+      <label for="T&C">Terms & Conditions:</label> <br>
+      <textarea
+        name="T&C"
+        id="T&C"
+        cols="54"
+        rows="5"
+        textContent="hi"
+        
+        placeholder="1. Price: FOB Nhava Sheva Port, India
 2. Stuffing at ICD Tihi (Pithampur) or Sea Port Nhava
 Sheva,
 3. Payment: 30% Advance TT
  (Telex of each container after final payment)"
-    ></textarea>
-  </div>
-  <br />
+      ></textarea><br>
+      <input type="submit" value="Next" />
+      <br><strong>Result!</strong> <br> 
+      Location: {{Generated}}
+    </div>
 
-  <table>
-    <tr>
-      <th>No. Of Item</th>
-      <th>Size of Cup</th>
-      <th>Product Name</th>
-      <th>No SKU in Conatiner</th>
-      <th>Rate $</th>
-      <th>Amount</th>
-      <th>No MC in Conatiner</th>
-      <th>MC Size</th>
-      <th>CBM per MC</th>
-      <th>CBM per 40HQ</th>
-      <th>Discription</th>
-    </tr>
-    <tr>
-      <td>
-        <input type="checkbox" name="Item1" id="Item1" checked />
-        <label for="Item1">Item 1</label>
-      </td>
-      <td>
-        <select name="size_of_cup1" id="size_of_cup1" required>
-          <option value="40">40ml</option>
-          <option value="55">55ml</option>
-          <option value="65">65ml</option>
-          <option value="75">75ml</option>
-          <option value="85">85ml</option>
-          <option value="90">90ml</option>
-          <option value="100">100ml</option>
-          <option value="100SB">100ml SB</option>
-          <option value="120">120ml</option>
-          <option value="125">125ml</option>
-          <option value="130">130ml</option>
-          <option value="150">150ml</option>
-          <option value="150SB">150ml SB</option>
-          <option value="200">200ml</option>
-          <option value="200SB">200ml SB</option>
-          <option value="8Oz">8 Oz</option>
-          <option value="250">250ml</option>
-          <option value="300">300ml</option>
-          <option value="330">330ml</option>
-        </select>
-      </td>
-      <td>
+    <div id="midbox" class="midbox">
+      <table>
+        <tr>
+          <td><input type="checkbox" name="Item1" id="Item1" checked />
+            <label for="Item1" class="item">Item 1</label></td>
+          <td></td>
+          <td></td>
+            
+        </tr>
+        <tr>
+          <td><label for="size_of_cup1">Size of Cup:</label></td>
+          <td><label for="productName1">Product Name:</label></td>
+         
+        </tr>
+        <tr>
+          <td>
+            <select name="size_of_cup1" id="size_of_cup1" required>
+              <option value="" , disabled selected>Select Size</option>
+              {%for size in size %}
+              <option value="{{size}}">{{size}}ml</option>
+              {%endfor%}
+            </select></td>
+        <td>
         <input
           type="text"
           name="productName1"
@@ -144,7 +138,15 @@ Sheva,
           placeholder="6Ct, 90ml Ripple Cup Printed "
         />
       </td>
-      <td>
+      <td></td>
+      </tr>
+      <tr>
+        <td><label for="NoSKUinConatiner1">Number of SKU:   </label></td>
+        <td><label for="Rate1">Rate of SKU $:   </label></td>
+        <td><label for="Amount1">Amount:          </label></td>
+         </tr>
+        <tr>
+          <td>
         <input
           type="number"
           name="NoSKUinConatiner1"
@@ -152,9 +154,8 @@ Sheva,
           size="15"
           required
           placeholder="1920 "
-        />
-      </td>
-      <td>
+        /></td>
+        <td>
         <input
           type="text"
           name="Rate1"
@@ -164,67 +165,29 @@ Sheva,
           placeholder="07.50 "
         />
       </td>
-      <td>
-        <input
-          type="text"
-          name="Amount1"
-          id="Amount1"
-          onclick="amount_calc_1()"
-          size="8"
-          required
-          placeholder="12345.68 "
-        />
-      </td>
-      <td>
-        <input
-          type="number"
-          name="NoMCinConatiner1"
-          id="NoMCinConatiner1"
-          size="5"
-          required
-          placeholder="3380 "
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="MCSize1"
-          id="MCSize1"
-          size="15"
-          onclick=""
-          required
-          placeholder="334 X 253 x 217 mm"
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="CBMperMC1"
-          id="CBMperMC1"
-          size="13"
-          required
-          onclick="CBMMC_cal_1()"
-          placeholder="0.0183"
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="CBMper40HQ1"
-          id="CBMper40HQ1"
-          onclick="CBM40_calc_1()"
-          size="13"
-          required
-          placeholder="71.147"
-        />
-      </td>
-      <td>
+      <td><input
+        type="text"
+        name="Amount1"
+        id="Amount1"
+        onclick="amount_calc_1()"
+        size="8"
+        required
+        placeholder="12345.68 "
+      /> </td>
+    </tr>
+
+      <tr>
+        <td><label for="DecSub1">Discription :</label></td>
+        <td><label for="NoMCinConatiner1">Number of Master Cartons :</label></td>
+        <td><label for="productName1">CBM per MC :</label> </td>
+      </tr>
+      <tr><td>
         <textarea
           name="DecSub1"
           id="DecSub1"
           cols="40"
           rows="6"
-          textContent="hi"
+ 
           required
           placeholder="6 Cups packed in Printed Poly Bag 
 12 such Poly bag in one Master Carton
@@ -232,248 +195,330 @@ Paper Cup: 256GSM (Single side Coated)
 Ripple: Inner Layer Brown Craft- 120GSM
            & Ripple Layer Craft- 120GSM
 Printing in One Color: Maroon Color"
-        ></textarea>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <input type="checkbox" name="Item2" id="Item2" />
-        <label for="Item2">Item 2</label>
-      </td>
-      <td>
-        <select name="size_of_cup2" id="size_of_cup2">
-          <option value="40">40ml</option>
-          <option value="55">55ml</option>
-          <option value="65">65ml</option>
-          <option value="75">75ml</option>
-          <option value="85">85ml</option>
-          <option value="90">90ml</option>
-          <option value="100">100ml</option>
-          <option value="100SB">100ml SB</option>
-          <option value="120SB">120ml SB</option>
-          <option value="125">125ml</option>
-          <option value="130">130ml</option>
-          <option value="150">150ml</option>
-          <option value="150SB">150ml SB</option>
-          <option value="200">200ml</option>
-          <option value="200SB">200ml SB</option>
-          <option value="8Oz">8 Oz</option>
-          <option value="250">250ml</option>
-          <option value="300">300ml</option>
-          <option value="330">330ml</option>
-        </select>
-      </td>
-      <td>
+        ></textarea></td>
+        <td>
+          <table>
+            <tr><td><input
+              type="number"
+              name="NoMCinConatiner1"
+              id="NoMCinConatiner1"
+              size="5"
+              required
+              placeholder="3380 "
+            /></td></tr>
+            <tr><td><label for="MCSize1">Master Carton Size :</label></td></tr>
+            <tr><td><input
+              type="text"
+              name="MCSize1"
+              id="MCSize1"
+              size="15"
+              
+              required
+              placeholder="334 X 253 x 217 mm"
+            /></td></tr>
+          </table>
+          </td>
+        <td>
+          <table>
+            <tr><td><input
+              type="text"
+              name="CBMperMC1"
+              id="CBMperMC1"
+              size="13"
+              required
+              onclick="CBMMC_cal_1()"
+              placeholder="0.0183"
+            /></td></tr>
+            <tr><td><label for="productName1">CBM per MC :</label></td></tr>
+            <tr><td><input
+              type="text"
+              name="CBMper40HQ1"
+              id="CBMper40HQ1"
+              onclick="CBM40_calc_1()"
+              size="13"
+              required
+              placeholder="71.147"
+            /></td></tr>
+          </table>
+          </td>
+          
+      </tr>
+      </table>
+      <table>
+        <tr>
+          <td><input type="checkbox" name="Item2" id="Item2"  />
+            <label for="Item2" class="item">Item 2</label></td>
+          <td></td>
+          <td></td>
+            
+        </tr>
+        <tr>
+          <td><label for="size_of_cup2">Size of Cup:</label></td>
+          <td><label for="productName2">Product Name:</label></td>
+         
+        </tr>
+        <tr>
+          <td>
+            <select name="size_of_cup2" id="size_of_cup2" >
+              <option value="" , disabled selected>Select Size</option>
+              {%for size in size %}
+              <option value="{{size}}">{{size}}ml</option>
+              {%endfor%}
+            </select></td>
+        <td>
         <input
           type="text"
           name="productName2"
           id="productName2"
           size="25"
+           
           placeholder="6Ct, 90ml Ripple Cup Printed "
         />
       </td>
-      <td>
+      <td></td>
+      </tr>
+      <tr>
+        <td><label for="NoSKUinConatiner2">Number of SKU:   </label></td>
+        <td><label for="Rate2">Rate of SKU $:   </label></td>
+        <td><label for="Amount2">Amount:          </label></td>
+         </tr>
+        <tr>
+          <td>
         <input
           type="number"
           name="NoSKUinConatiner2"
           id="NoSKUinConatiner2"
           size="15"
+           
           placeholder="1920 "
-        />
-      </td>
-      <td>
+        /></td>
+        <td>
         <input
           type="text"
           name="Rate2"
           id="Rate2"
           size="5"
+           
           placeholder="07.50 "
         />
       </td>
-      <td>
-        <input
-          type="text"
-          name="Amount2"
-          id="Amount2"
-          onclick="amount_calc_2()"
-          size="8"
-          placeholder="12345.68 "
-        />
-      </td>
-      <td>
-        <input
-          type="number"
-          name="NoMCinConatiner2"
-          id="NoMCinConatiner2"
-          size="5"
-          placeholder="3380 "
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="MCSize2"
-          id="MCSize2"
-          size="15"
-          placeholder="334 X 253 x 217 mm"
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="CBMperMC2"
-          id="CBMperMC2"
-          size="13"
-          onclick="CBMMC_cal_2()"
-          placeholder="0.0183"
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="CBMper40HQ2"
-          id="CBMper40HQ2"
-          onclick="CBM40_calc_2()"
-          size="13"
-          placeholder="71.147"
-        />
-      </td>
-      <td>
+      <td><input
+        type="text"
+        name="Amount2"
+        id="Amount2"
+        onclick="amount_calc_2()"
+        size="8"
+         
+        placeholder="12345.68 "
+      /> </td>
+    </tr>
+
+      <tr>
+        <td><label for="DecSub2">Discription :</label></td>
+        <td><label for="NoMCinConatiner2">Number of Master Cartons :</label></td>
+        <td><label for="productName2">CBM per MC :</label> </td>
+      </tr>
+      <tr><td>
         <textarea
           name="DecSub2"
           id="DecSub2"
           cols="40"
           rows="6"
-          textContent="hi"
+ 
+           
           placeholder="6 Cups packed in Printed Poly Bag 
 12 such Poly bag in one Master Carton
 Paper Cup: 256GSM (Single side Coated)
 Ripple: Inner Layer Brown Craft- 120GSM
-         & Ripple Layer Craft- 120GSM
+           & Ripple Layer Craft- 120GSM
 Printing in One Color: Maroon Color"
-        ></textarea>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <input type="checkbox" name="Item3" id="Item3" />
-        <label for="Item3">Item 3</label>
-      </td>
-      <td>
-        <select name="size_of_cup3" id="size_of_cup3">
-          <option value="40">40ml</option>
-          <option value="55">55ml</option>
-          <option value="65">65ml</option>
-          <option value="75">75ml</option>
-          <option value="85">85ml</option>
-          <option value="90">90ml</option>
-          <option value="100">100ml</option>
-          <option value="100SB">100ml SB</option>
-          <option value="120SB">120ml SB</option>
-          <option value="125">125ml</option>
-          <option value="130">130ml</option>
-          <option value="150">150ml</option>
-          <option value="150SB">150ml SB</option>
-          <option value="200">200ml</option>
-          <option value="200SB">200ml SB</option>
-          <option value="8Oz">8 Oz</option>
-          <option value="250">250ml</option>
-          <option value="300">300ml</option>
-          <option value="330">330ml</option>
-        </select>
-      </td>
-      <td>
+        ></textarea></td>
+        <td>
+          <table>
+            <tr><td><input
+              type="number"
+              name="NoMCinConatiner2"
+              id="NoMCinConatiner2"
+              size="5"
+               
+              placeholder="3380 "
+            /></td></tr>
+            <tr><td><label for="MCSize1">Master Carton Size :</label></td></tr>
+            <tr><td><input
+              type="text"
+              name="MCSize2"
+              id="MCSize2"
+              size="15"
+              
+               
+              placeholder="334 X 253 x 217 mm"
+            /></td></tr>
+          </table>
+          </td>
+        <td>
+          <table>
+            <tr><td><input
+              type="text"
+              name="CBMperMC2"
+              id="CBMperMC2"
+              size="13"
+               
+              onclick="CBMMC_cal_2()"
+              placeholder="0.0183"
+            /></td></tr>
+            <tr><td><label for="productName2">CBM per MC :</label></td></tr>
+            <tr><td><input
+              type="text"
+              name="CBMper40HQ2"
+              id="CBMper40HQ2"
+              onclick="CBM40_calc_2()"
+              size="13"
+               
+              placeholder="71.147"
+            /></td></tr>
+          </table>
+          </td>
+          
+      </tr>
+      </table><table>
+        <tr>
+          <td><input type="checkbox" name="Item3" id="Item3"  />
+            <label for="Item3" class="item">Item 3</label></td>
+          <td></td>
+          <td></td>
+            
+        </tr>
+        <tr>
+          <td><label for="size_of_cup3">Size of Cup:</label></td>
+          <td><label for="productName3">Product Name:</label></td>
+         
+        </tr>
+        <tr>
+          <td>
+            <select name="size_of_cup3" id="size_of_cup3" >
+              <option value="" , disabled selected>Select Size</option>
+              {%for size in size %}
+              <option value="{{size}}">{{size}}ml</option>
+              {%endfor%}
+            </select></td>
+        <td>
         <input
           type="text"
           name="productName3"
           id="productName3"
           size="25"
+           
           placeholder="6Ct, 90ml Ripple Cup Printed "
         />
       </td>
-      <td>
+      <td></td>
+      </tr>
+      <tr>
+        <td><label for="NoSKUinConatiner3">Number of SKU:   </label></td>
+        <td><label for="Rate3">Rate of SKU $:   </label></td>
+        <td><label for="Amount3">Amount:          </label></td>
+         </tr>
+        <tr>
+          <td>
         <input
           type="number"
           name="NoSKUinConatiner3"
           id="NoSKUinConatiner3"
           size="15"
+           
           placeholder="1920 "
-        />
-      </td>
-      <td>
+        /></td>
+        <td>
         <input
           type="text"
           name="Rate3"
           id="Rate3"
           size="5"
+           
           placeholder="07.50 "
         />
       </td>
-      <td>
-        <input
-          type="text"
-          name="Amount3"
-          id="Amount3"
-          onclick="amount_calc_3()"
-          size="8"
-          placeholder="12345.68 "
-        />
-      </td>
-      <td>
-        <input
-          type="number"
-          name="NoMCinConatiner3"
-          id="NoMCinConatiner3"
-          size="5"
-          placeholder="3380 "
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="MCSize3"
-          id="MCSize3"
-          size="15"
-          placeholder="334 X 253 x 217 mm"
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="CBMperMC3"
-          id="CBMperMC3"
-          size="13"
-          onclick="CBMMC_cal_3()"
-          placeholder="0.0183"
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="CBMper40HQ3"
-          id="CBMper40HQ3"
-          size="13"
-          placeholder="71.147"
-        />
-      </td>
-      <td>
+      <td><input
+        type="text"
+        name="Amount3"
+        id="Amount3"
+        onclick="amount_calc_3()"
+        size="8"
+         
+        placeholder="12345.68 "
+      /> </td>
+    </tr>
+
+      <tr>
+        <td><label for="DecSub3">Discription :</label></td>
+        <td><label for="NoMCinConatiner3">Number of Master Cartons :</label></td>
+        <td><label for="productName3">CBM per MC :</label> </td>
+      </tr>
+      <tr><td>
         <textarea
           name="DecSub3"
           id="DecSub3"
           cols="40"
           rows="6"
-          textContent="hi"
+ 
+           
           placeholder="6 Cups packed in Printed Poly Bag 
 12 such Poly bag in one Master Carton
 Paper Cup: 256GSM (Single side Coated)
 Ripple: Inner Layer Brown Craft- 120GSM
-         & Ripple Layer Craft- 120GSM
+           & Ripple Layer Craft- 120GSM
 Printing in One Color: Maroon Color"
-        ></textarea>
-      </td>
-    </tr>
-  </table>
-  <input type="submit" value="Generate" />
+        ></textarea></td>
+        <td>
+          <table>
+            <tr><td><input
+              type="number"
+              name="NoMCinConatiner3"
+              id="NoMCinConatiner3"
+              size="5"
+               
+              placeholder="3380 "
+            /></td></tr>
+            <tr><td><label for="MCSize3">Master Carton Size :</label></td></tr>
+            <tr><td><input
+              type="text"
+              name="MCSize3"
+              id="MCSize3"
+              size="15"
+              
+               
+              placeholder="334 X 253 x 217 mm"
+            /></td></tr>
+          </table>
+          </td>
+        <td>
+          <table>
+            <tr><td><input
+              type="text"
+              name="CBMperMC3"
+              id="CBMperMC3"
+              size="13"
+               
+              onclick="CBMMC_cal_3()"
+              placeholder="0.0183"
+            /></td></tr>
+            <tr><td><label for="productName3">CBM per MC :</label></td></tr>
+            <tr><td><input
+              type="text"
+              name="CBMper40HQ3"
+              id="CBMper40HQ3"
+              onclick="CBM40_calc_3()"
+              size="13"
+               
+              placeholder="71.147"
+            /></td></tr>
+          </table>
+          </td>
+          
+      </tr>
+      </table>
+    </div>
+    
 </form>
 
 <script>

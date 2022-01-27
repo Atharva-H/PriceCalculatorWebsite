@@ -3,11 +3,25 @@
 {% load static%}
 <link rel="stylesheet" type="text/css" href="{% static 'topdf.css' %}" />
 
-<h2>Welcome to Paricott Calculator</h2>
-<p class="para">
-  Here u can calculate cost of paper cup. It starts with Base cup cost which
-  means base white cup with no printing, ripple, lid, handle etc. <br />
-  & the base value wile be of a single cup.
+<h2>Welcome to Paricott Server</h2><br />
+<p>
+  Welcome!! This website will help to Create Quotation from anywhere. The
+  Quotation created will be stored in Drive. <br /><br />
+  <h3># To Start:</h3>
+  Click on Cost Calculator. Here you will have 4 options. <br /><br />
+  <h4>Calculate & Create Quotation <a href="/getquote_1">[Link]</a></h4>
+  >> This page will lead you to a form which will cover everything that is needed to calculate Total Cost & will finally Create a PDF that you can directly Send it to the Client / Buyers.<br /><br />
+  <h4>Calculate Base Cup Cost <a href="/base">[Link]</a></h4>
+  >> This page will lead you to a form which will help you calculate Base Cup Cost i.e. white cup with no printing or rippling or lid.<br /><br />
+  <h4> Calculate Pkg & Transportation Cost <a href="/packcost">[Link]</a></h4>
+  >> This page will lead you to a form which will help you calculate the cost of a cup after taking Pkg & transportation in to account. Also it will also Calculate any other cost i.e. printing, rippling, handle, printed label, sealing, shrink raping, etc. You will need to get base cup cost to fill this form. <br /><br />
+  <h4>Create Quotation <a href="/topdf">[Link]</a></h4>
+  >>This page will lead you to a form which will help you to create a pdf for the buyer / customer. For this you will need Buyer Info / Buyer Abrv, Final Cup Cost, Box Dimensions, Title of Product, Discription of product, Pkg quantity, etc. You will also he to check the Quotation ID so that it's always in order. Also you will need to add other basic details you used to calculate Base Cup Cost & Final Cup Cost.
+  <br /> <br />
+  <h3># To Control:</h3>
+  >> The owner of the website will be shared a Login ID & Password. He / She can login to the admin side of website by <a href="/admin/">clicking here</a>.<br />
+  >> Here you can get access to Old quotations, Calibrate primary data settings, Buyer Info Setting, etc.<br />
+  >> Here you can also add new product with its dimensions & other specifications.<br />
 </p>
 
 {% endblock %}

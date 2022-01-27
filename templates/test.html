@@ -2,58 +2,23 @@
 <title>Test Page</title>
 <form action="/test" method="post">
   {% csrf_token %}
+  <label for="Date">Date:</label>
+  <input type="date" name="Date" id="Date" placeholder="11-Nov-2021" />
+  <br />
+  <label for="noQuote">Quote:</label>
+  <input type="text" name="noQuote" id="noQuote" placeholder="201/21-22" />
+  <br />
+  <label for="buyer_alias">Buyer Alias:</label>
+  <input
+    type="text"
+    name="buyer_alias"
+    id="buyer_alias"
+    placeholder="MaxHome"
+    required
+  />
 
-  <input
-    type="text"
-    class="textfield"
-    name="text1"
-    id="text1"
-    placeholder="Text 1"
-  /><br />
-  <input
-    type="text"
-    class="textfield"
-    name="text2"
-    id="text2"
-    placeholder="text 2"
-    onclick="getCBM(text1,text2)"
-  /><br />
-  <input
-    type="text"
-    class="textfield"
-    name="text3"
-    id="text3"
-    placeholder="num 1"
-  /><br />
-  <input
-    type="text"
-    class="textfield"
-    name="text4"
-    id="text4"
-    placeholder="num 2"
-    onclick="getCBM()"
-  /><br />
-  <input type="button" value="button" onclick="getCBM()" />
-  <p id="tag">asdsadas</p>
+  <br />
+  <br />
   <input type="submit" value="Submit" />
 </form>
-<script>
-  function myFunction() {
-    document.getElementById("text1").value =
-      document.getElementById("num1").value *
-      document.getElementById("num2").value;
-  }
-  function getCBM(value_in, value_out) {
-    c = document.getElementById(value_in).value;
-    const myArray = c.split("x");
-    result =
-      parseInt(myArray[0]) *
-      parseInt(myArray[1]) *
-      parseInt(myArray[2]) *
-      Math.pow(0.1, 9);
-    CBM = parseFloat(result).toFixed(4);
-
-    document.getElementById(value_out).value = CBM;
-  }
-</script>
-{% endblock %}
+{{result}} {% endblock %}

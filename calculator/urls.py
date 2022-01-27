@@ -18,8 +18,10 @@ from django.urls import path
 
 from .views import (
     base_cup_handler,
-    data_calib_handler,
-    export_quote_handler,
+    get_quote_buyer,
+    get_quote_base,
+    get_quote_pkg,
+    get_quote_items,
     home_handler,
     pack_cost_handler,
     pdf_handler,
@@ -29,8 +31,10 @@ from .views import (
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("base", base_cup_handler, name="base cup cost calculator"),
-    path("calib", data_calib_handler, name="Calibrate ur data"),
-    path("exportquote", export_quote_handler, name="Generate quote for Export"),
+    path("getquote_1", get_quote_buyer, name="Generate quote"),
+    path("getquote_2", get_quote_base, name="Generate quote"),
+    path("getquote_3", get_quote_pkg, name="Generate quote"),
+    path("getquote_4", get_quote_items, name="Generate quote"),
     path("", home_handler, name="Calibrate ur data"),
     path("packcost", pack_cost_handler, name="Calculater for Packet Cost"),
     path("topdf", pdf_handler, name="Will create a pdf"),

@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'topdf.css' %}" />
 <h2>Calculate Base Cup Cost</h2>
 <br /><br />
-<form action="/base" method="POST">
+<form action="getquote_2" method="POST">
   {% csrf_token %}
   <table>
     <tr>
@@ -12,8 +12,6 @@
       <td>
         <select name="size_of_cup" id="size_of_cup" required>
           <option value="{{size_of_cup}}" , selected>{{size_of_cup}}ml</option>
-            {{size_of_cup}}
-          </option>
           {%for size in size %}
           <option value="{{size}}">{{size}}ml</option>
           {%endfor%}
@@ -78,7 +76,17 @@
     </tr>
   </table>
 
-  <input type="submit" value="Calculate" />
+  <input type="hidden" name="Date" value="{{Date}}" />
+  <input type="hidden" name="noQuote" value="{{No_quote}}" />
+  <input type="hidden" name="Abrv" value="{{Abrv}}" />
+  <input type="hidden" name="CompanyName" value="{{CompName}}" />
+  <input type="hidden" name="CompanyAdd" value="{{CompAdd}}" />
+  <input type="hidden" name="BuyerName" value="{{BuyerName}}" />
+  <input type="hidden" name="Buyerinfo" value="{{BuyerDet}}" />
+  <input type="hidden" name="T&C" value="{{TandC}}" />
+
+  <input type="submit" value="Calculate" name="Calculate" />
+  <input type="submit" value="Next" name="Next" />
 </form>
 <br />
 <strong>Result!</strong> Base cup cost of {{size_of_cup}} ml is

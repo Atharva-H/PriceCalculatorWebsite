@@ -1,0 +1,251 @@
+{%extends 'base.html'%} {% block content%}
+<title>PARICOTT | ToPDF</title>
+
+{% load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'topdf.css' %}" />
+<form action="getquote_4" method="post">
+  <h2>Create Quotation</h2>
+  <br /><br />
+  {% csrf_token %}
+  <div id="boxes" class="boxes">
+    <div id="leftbox" class="leftbox"></div>
+    <table>
+      <tr>
+        <td><label for="size_of_cup1">Size of Cup:</label></td>
+        <td><label for="productName1">Product Name:</label></td>
+        <td><label for="created_by">Created By Name:</label></td>
+      </tr>
+      <tr>
+        <td>
+          <select name="size_of_cup1" id="size_of_cup1" required>
+            <option value="{{size_of_cup}}" , selected>
+              {{size_of_cup}}ml
+            </option>
+            {%for size in size %}
+            <option value="{{size}}">{{size}}ml</option>
+            {%endfor%}
+          </select>
+        </td>
+        <td>
+          <input
+            type="text"
+            name="productName1"
+            id="productName1"
+            size="25"
+            value="{{productName}}"
+            required
+            placeholder="6Ct, 90ml Ripple Cup Printed "
+          />
+        </td>
+        <td>
+          <input
+            type="created_by"
+            name="created_by"
+            id="created_by"
+            size="25"
+            value="{{created_by}}"
+            required
+            placeholder="Atharva"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td><label for="NoSKUinConatiner1">Number of SKU: </label></td>
+        <td><label for="Rate1">Rate of SKU $: </label></td>
+        <td><label for="Amount1">Amount: </label></td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="number"
+            name="NoSKUinConatiner1"
+            id="NoSKUinConatiner1"
+            size="15"
+            value="{{SKUperConatiner}}"
+            required
+            placeholder="1920 "
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="Rate1"
+            id="Rate1"
+            size="5"
+            value="{{SKUcostinDollor}}"
+            required
+            placeholder="07.50 "
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="Amount1"
+            id="Amount1"
+            onclick="amount_calc_1()"
+            size="8"
+            value="{{Amount}}"
+            required
+            placeholder="12345.68 "
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td><label for="DecSub1">Discription :</label></td>
+        <td>
+          <label for="NoMCinConatiner1">Number of Master Cartons :</label>
+        </td>
+        <td><label for="productName1">CBM per MC :</label></td>
+      </tr>
+      <tr>
+        <td>
+          <textarea
+            name="DecSub1"
+            id="DecSub1"
+            cols="40"
+            rows="6"
+            required
+            placeholder="6 Cups packed in Printed Poly Bag 
+12 such Poly bag in one Master Carton
+Paper Cup: 256GSM (Single side Coated)
+Ripple: Inner Layer Brown Craft- 120GSM
+           & Ripple Layer Craft- 120GSM
+Printing in One Color: Maroon Color"
+          >
+{{DecSub}}</textarea
+          >
+        </td>
+        <td>
+          <table>
+            <tr>
+              <td>
+                <input
+                  type="number"
+                  name="NoMCinConatiner1"
+                  id="NoMCinConatiner1"
+                  size="5"
+                  value="{{BoxsPerContainer}}"
+                  required
+                  placeholder="3380 "
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="MCSize1">Master Carton Size :</label></td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  name="MCSize1"
+                  id="MCSize1"
+                  size="15"
+                  value="{{MCSize}}"
+                  required
+                  placeholder="334 X 253 x 217 mm"
+                />
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          <table>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  name="CBMperMC1"
+                  id="CBMperMC1"
+                  size="13"
+                  value="{{CBMperMC1}}"
+                  required
+                  onclick="CBMMC_cal_1()"
+                  placeholder="0.0183"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="productName1">CBM per MC :</label></td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  name="CBMper40HQ1"
+                  id="CBMper40HQ1"
+                  onclick="CBM40_calc_1()"
+                  value="{{CBMper40HQ1}}"
+                  size="13"
+                  required
+                  placeholder="71.147"
+                />
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Generate" /></td>
+        <td>
+          <strong>Result!</strong> <br />
+          Location: {{Path}}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <input type="hidden" name="Date" value="{{Date}}" />
+  <input type="hidden" name="noQuote" value="{{No_quote}}" />
+  <input type="hidden" name="Abrv" value="{{Abrv}}" />
+  <input type="hidden" name="CompanyName" value="{{CompName}}" />
+  <input type="hidden" name="CompanyAdd" value="{{CompAdd}}" />
+  <input type="hidden" name="BuyerName" value="{{BuyerName}}" />
+  <input type="hidden" name="Buyerinfo" value="{{BuyerDet}}" />
+  <input type="hidden" name="T&C" value="{{TandC}}" />
+  <input type="hidden" name="size_of_cup" value="{{size_of_cup}}" />
+  <input type="hidden" name="gsm" value="{{gsm}}" />
+  <input type="hidden" name="paper_rate" value="{{paper_rate}}" />
+  <input type="hidden" name="scrape_rate" value="{{scrape_rate}}" />
+  <input type="hidden" name="margin" value="{{margin}}" />
+  <input type="hidden" name="base_cup_cost" value="{{base_cup_cost}}" />
+  <input type="hidden" name="CupsperSKU" value="{{CupsperSKU}}" />
+  <input type="hidden" name="SKUperMC" value="{{SKUperMC}}" />
+  <input type="hidden" name="PrintingCost" value="{{CostPrintColorperCup}}" />
+  <input type="hidden" name="LabelCost" value="{{LabelCost}}" />
+  <input type="hidden" name="PolyCost" value="{{PolyCost}}" />
+  <input type="hidden" name="MCCost" value="{{MCCost}}" />
+  <input type="hidden" name="Freight" value="{{Freight}}" />
+  <input type="hidden" name="BoxsPerContainer" value="{{BoxsPerContainer}}" />
+  <input type="hidden" name="DollorRate" value="{{DollorRate}}" />
+  <input type="hidden" name="AddCostperSKU" value="{{AddCostperSKU}}" />
+  <input type="hidden" name="SKUcostinDollor" value="{{SKUcostinDollor}}" />
+</form>
+
+<script>
+  function amount_calc_1() {
+    document.getElementById("Amount1").value = parseFloat(
+      document.getElementById("NoSKUinConatiner1").value *
+        document.getElementById("Rate1").value
+    ).toFixed(3);
+  }
+  function CBMMC_cal_1() {
+    c = document.getElementById("MCSize1").value;
+    const myArray = c.split("x");
+    result =
+      parseInt(myArray[0]) *
+      parseInt(myArray[1]) *
+      parseInt(myArray[2]) *
+      Math.pow(0.1, 9);
+    CBM = parseFloat(result).toFixed(3);
+
+    document.getElementById("CBMperMC1").value = CBM;
+  }
+  function CBM40_calc_1() {
+    CBM40 =
+      document.getElementById("CBMperMC1").value *
+      document.getElementById("NoMCinConatiner1").value;
+    document.getElementById("CBMper40HQ1").value = parseFloat(CBM40).toFixed(2);
+  }
+</script>
+{% endblock %}

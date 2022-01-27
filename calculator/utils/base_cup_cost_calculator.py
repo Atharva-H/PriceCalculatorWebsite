@@ -4,11 +4,7 @@
 # output is a number which is Cost of 1 Cup in three desimials .
 
 
-import json
-
-
-with open("calculator/utils/calibrate_data/base_cup_data.json") as f:
-    RM_Data = json.load(f)
+from calculator.models import ProductDim, ProductCalculationData
 
 
 def BaseCupCost(
@@ -32,13 +28,16 @@ def BaseCupCost(
 
 def base_cup_cost_calculator(size_of_cup, gsm, paper_rate, scrape_rate, margin):
 
+    product = ProductDim.objects.get(product_name=size_of_cup)
+    product_info = ProductCalculationData.objects.get(product_id=product.id)
+    print(product_info)
     return BaseCupCost(
-        Dcs=RM_Data[size_of_cup]["Die Cup Sheet"],
-        NoB=RM_Data[size_of_cup]["Number of Blanks per Sheet"],
-        WBperS=RM_Data[size_of_cup]["Wt. Blanks per Sheet"],
-        BW=RM_Data[size_of_cup]["Bottom"],
-        Overhead=RM_Data[size_of_cup]["Over heads"],
-        C_Gsm=RM_Data[size_of_cup]["GSM"],
+        Dcs=product_info.die_cup_sheet,
+        NoB=product_info.num_of_blanks_per_sheet,
+        WBperS=product_info.weight_blank_per_sheet,
+        BW=product_info.weight_bottom,
+        Overhead=product_info.over_head_cost,
+        C_Gsm=product_info.gsm,
         N_Gsm=gsm,
         PaperRate=paper_rate,
         ScrapeRate=scrape_rate,
