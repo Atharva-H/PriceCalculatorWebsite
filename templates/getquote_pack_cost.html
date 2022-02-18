@@ -150,6 +150,46 @@
         />
       </td>
     </tr>
+    <tr>
+      <td><label for="quote_type">Quotation Type:</label></td>
+      <td>
+        <input
+          type="radio"
+          id="quote_type_mc"
+          name="quote_type"
+          value="quote_type_mc"
+          checked
+        /><label for="quote_type_mc"> Master Carton</label>
+      </td>
+      <td>
+        <input
+          type="radio"
+          id="quote_type_sku"
+          name="quote_type"
+          value="quote_type_sku"
+        /><label for="quote_type_sku"> SKU</label>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="currency_type">Currency Type:</label></td>
+      <td>
+        <input
+          type="radio"
+          id="currency_type_dollor"
+          name="currency_type"
+          value="currency_type_dollor"
+          checked
+        /><label for="currency_type_dollor"> Dollor $</label>
+      </td>
+      <td>
+        <input
+          type="radio"
+          id="currency_type_rupee"
+          name="currency_type"
+          value="currency_type_rupee"
+        /><label for="currency_type_rupee"> Rupee ₹</label>
+      </td>
+    </tr>
   </table>
 
   <input type="hidden" name="Date" value="{{Date}}" />
@@ -166,6 +206,7 @@
   <input type="hidden" name="scrape_rate" value="{{scrape_rate}}" />
   <input type="hidden" name="margin" value="{{margin}}" />
   <input type="hidden" name="base_cup_cost" value="{{base_cup_cost}}" />
+  <input type="hidden" name="user" value="{{user}}" />
 
   <input type="submit" value="Calculate" name="Calculate" />
   <input type="submit" value="Next" name="Next" />

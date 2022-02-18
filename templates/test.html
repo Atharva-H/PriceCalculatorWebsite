@@ -2,23 +2,12 @@
 <title>Test Page</title>
 <form action="/test" method="post">
   {% csrf_token %}
-  <label for="Date">Date:</label>
-  <input type="date" name="Date" id="Date" placeholder="11-Nov-2021" />
-  <br />
-  <label for="noQuote">Quote:</label>
-  <input type="text" name="noQuote" id="noQuote" placeholder="201/21-22" />
-  <br />
-  <label for="buyer_alias">Buyer Alias:</label>
-  <input
-    type="text"
-    name="buyer_alias"
-    id="buyer_alias"
-    placeholder="MaxHome"
-    required
-  />
-
-  <br />
-  <br />
+  <select name="user" id="user" required>
+    <option value="{{user}}" ,disable selected>Created By</option>
+    {%for user in user %}
+    <option value="{{user}}">{{user}}</option>
+    {%endfor%}
+  </select>
   <input type="submit" value="Submit" />
 </form>
 {{result}} {% endblock %}

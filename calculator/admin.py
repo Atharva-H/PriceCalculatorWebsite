@@ -6,6 +6,7 @@ from .models import (
     ProductDim,
     ProductCalculationData,
     MasterCarton,
+    Dump,
 )
 
 # user: Atharva
@@ -41,7 +42,7 @@ class ProductCalculationDataAdmin(admin.ModelAdmin):
 @admin.register(MasterCarton)
 class MasterCartonAdmin(admin.ModelAdmin):
     list_display = (
-        "carton_id",
+        "id",
         "length",
         "breadth",
         "height",
@@ -59,7 +60,8 @@ class ItemAdmin(admin.ModelAdmin):
         "margin",
         "freight_per_container",
         "cost_per_cup",
-        "rate_of_sku",
+        "mc_dollor_rate",
+        "mc_inr_rate",
     )
     search_fields = (
         "product__product_name",
@@ -73,3 +75,9 @@ class ItemAdmin(admin.ModelAdmin):
 class QuotationAdmin(admin.ModelAdmin):
     list_display = ("quotation_id", "buyer_alias", "created_by")
     search_fields = ("quotation_id", "buyer_alias__buyer_alias", "created_by")
+
+
+@admin.register(Dump)
+class DumpAdmin(admin.ModelAdmin):
+    list_display = ("product", "product_id", "product_name", "created_by", "created_at")
+    search_fields = ("product", "created_at", "created_by")

@@ -1,6 +1,9 @@
 from django.db import models
 from uuid import uuid4
 from datetime import datetime
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class Buyer(models.Model):
@@ -80,9 +83,12 @@ class Item(models.Model):
     mc_cost = models.FloatField()
     freight_per_container = models.FloatField()
     mc_per_container = models.IntegerField()
-    dollor_rate = models.FloatField()
+    dollor_rate = models.IntegerField()
     add_cost_per_sku = models.FloatField()
-    rate_of_sku = models.IntegerField()
+    mc_dollor_rate = models.FloatField()
+    sku_dollor_rate = models.FloatField()
+    mc_inr_rate = models.FloatField()
+    sku_inr_rate = models.FloatField()
 
     # Form3
     product_name = models.CharField(max_length=30)
@@ -113,3 +119,38 @@ class Quotation(models.Model):
 
     def __str__(self):
         return str(self.quotation_id)
+
+
+class Dump(models.Model):
+    # Form1
+    product = models.ForeignKey(ProductDim, on_delete=models.CASCADE)
+    gsm = models.IntegerField(blank=True, null=True)
+    paper_rate = models.FloatField(blank=True, null=True)
+    scrape_rate = models.FloatField(blank=True, null=True)
+    margin = models.FloatField(blank=True, null=True)
+    cost_per_cup = models.FloatField(blank=True, null=True)
+
+    # Form2
+    cups_per_sku = models.IntegerField(blank=True, null=True)
+    sku_per_mc = models.IntegerField(blank=True, null=True)
+    print_cost = models.FloatField(blank=True, null=True)
+    mc_cost = models.FloatField(blank=True, null=True)
+    freight_per_container = models.FloatField(blank=True, null=True)
+    mc_per_container = models.IntegerField(blank=True, null=True)
+    dollor_rate = models.FloatField(blank=True, null=True)
+    add_cost_per_sku = models.FloatField(blank=True, null=True)
+    rate_of_sku = models.FloatField(blank=True, null=True)
+
+    # Form3
+    product_name = models.CharField(max_length=30, blank=True, null=True)
+    num_of_sku_per_container = models.IntegerField(blank=True, null=True)
+    product_desription = models.TextField(max_length=20000, blank=True, null=True)
+    # buyer_alias = models.ForeignKey(Buyer, on_delete=models.CASCADE)
+    # quotation_id = models.CharField(max_length=20)
+
+    created_by = models.CharField(max_length=20, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(default=datetime.now())
+
+    def __str__(self):
+        return str(self.product_name)

@@ -47,6 +47,15 @@
             placeholder="{{CompName}}"
             
           /></td>
+        <td><label for="created_by">Created By Name:</label></td>
+          <td>
+            <select name="user" id="user" required>
+              <option value="", disable>Created By</option>
+              {%for user in userlist %}
+              <option value="{{user}}">{{user}}</option>
+              {%endfor%}
+            </select>
+          </td>
         </tr>
         <tr>
           <td><label for="CompanyAdd">Company Address:</label></td>
@@ -98,80 +107,4 @@
     </div>
     
 </form>
-
-<script>
-  function amount_calc_1() {
-    document.getElementById("Amount1").value = parseFloat(
-      document.getElementById("NoSKUinConatiner1").value *
-        document.getElementById("Rate1").value
-    ).toFixed(4);
-  }
-  function amount_calc_2() {
-    document.getElementById("Amount2").value = parseFloat(
-      document.getElementById("NoSKUinConatiner2").value *
-        document.getElementById("Rate2").value
-    ).toFixed(4);
-  }
-  function amount_calc_3() {
-    document.getElementById("Amount3").value = parseFloat(
-      document.getElementById("NoSKUinConatiner3").value *
-        document.getElementById("Rate3").value
-    ).toFixed(4);
-  }
-  function CBMMC_cal_1() {
-    c = document.getElementById("MCSize1").value;
-    const myArray = c.split("x");
-    result =
-      parseInt(myArray[0]) *
-      parseInt(myArray[1]) *
-      parseInt(myArray[2]) *
-      Math.pow(0.1, 9);
-    CBM = parseFloat(result).toFixed(4);
-
-    document.getElementById("CBMperMC1").value = CBM;
-  }
-  function CBMMC_cal_2() {
-    c = document.getElementById("MCSize2").value;
-    const myArray = c.split("x");
-    result =
-      parseInt(myArray[0]) *
-      parseInt(myArray[1]) *
-      parseInt(myArray[2]) *
-      Math.pow(0.1, 9);
-    CBM = parseFloat(result).toFixed(4);
-
-    document.getElementById("CBMperMC2").value = CBM;
-  }
-  function CBMMC_cal_3() {
-    c = document.getElementById("MCSize3").value;
-    const myArray = c.split("x");
-    result =
-      parseInt(myArray[0]) *
-      parseInt(myArray[1]) *
-      parseInt(myArray[2]) *
-      Math.pow(0.1, 9);
-    CBM = parseFloat(result).toFixed(4);
-
-    document.getElementById("CBMperMC3").value = CBM;
-  }
-
-  function CBM40_calc_1() {
-    CBM40 =
-      document.getElementById("CBMperMC1").value *
-      document.getElementById("NoMCinConatiner1").value;
-    document.getElementById("CBMper40HQ1").value = parseFloat(CBM40).toFixed(2);
-  }
-  function CBM40_calc_2() {
-    CBM40 =
-      document.getElementById("CBMperMC2").value *
-      document.getElementById("NoMCinConatiner2").value;
-    document.getElementById("CBMper40HQ2").value = parseFloat(CBM40).toFixed(2);
-  }
-  function CBM40_calc_3() {
-    CBM40 =
-      document.getElementById("CBMperMC3").value *
-      document.getElementById("NoMCinConatiner3").value;
-    document.getElementById("CBMper40HQ3").value = parseFloat(CBM40).toFixed(2);
-  }
-</script>
 {% endblock %}

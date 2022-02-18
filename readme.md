@@ -11,3 +11,5 @@ pip install -r requirements.txt
 python manage.py runserver
 python manage.py makemigrations calculator
 python manage.py migrate calculator
+
+python manage.py createsuperuser

@@ -13,7 +13,6 @@
       <tr>
         <td><label for="size_of_cup1">Size of Cup:</label></td>
         <td><label for="productName1">Product Name:</label></td>
-        <td><label for="created_by">Created By Name:</label></td>
       </tr>
       <tr>
         <td>
@@ -37,42 +36,21 @@
             placeholder="6Ct, 90ml Ripple Cup Printed "
           />
         </td>
-        <td>
-          <input
-            type="created_by"
-            name="created_by"
-            id="created_by"
-            size="25"
-            value="{{created_by}}"
-            required
-            placeholder="Atharva"
-          />
-        </td>
       </tr>
       <tr>
-        <td><label for="NoSKUinConatiner1">Number of SKU: </label></td>
-        <td><label for="Rate1">Rate of SKU $: </label></td>
+        <td></td>
+        <td><label for="Rate1">Rate of Master Carton : </label></td>
         <td><label for="Amount1">Amount: </label></td>
       </tr>
       <tr>
-        <td>
-          <input
-            type="number"
-            name="NoSKUinConatiner1"
-            id="NoSKUinConatiner1"
-            size="15"
-            value="{{SKUperConatiner}}"
-            required
-            placeholder="1920 "
-          />
-        </td>
+        <td></td>
         <td>
           <input
             type="text"
             name="Rate1"
             id="Rate1"
             size="5"
-            value="{{SKUcostinDollor}}"
+            value="{{MCcostinDollor}}"
             required
             placeholder="07.50 "
           />
@@ -186,11 +164,23 @@ Printing in One Color: Maroon Color"
         </td>
       </tr>
       <tr>
-        <td><input type="submit" value="Generate" /></td>
         <td>
+          <input type="submit" value="Add Item" name="Add" />
+          <label for="item_count">Item Count :</label>
+          <input
+            type="number"
+            id="item_count"
+            value="1"
+            name="item_count"
+            min="1"
+            max="3"
+          />
+          <input type="submit" value="Generate" name="Generate" />
+        </td>
+        <!-- <td>
           <strong>Result!</strong> <br />
           Location: {{Path}}
-        </td>
+        </td> -->
       </tr>
     </table>
   </div>
@@ -220,12 +210,19 @@ Printing in One Color: Maroon Color"
   <input type="hidden" name="DollorRate" value="{{DollorRate}}" />
   <input type="hidden" name="AddCostperSKU" value="{{AddCostperSKU}}" />
   <input type="hidden" name="SKUcostinDollor" value="{{SKUcostinDollor}}" />
+  <input type="hidden" name="SKUcostinINR" value="{{SKUcostinINR}}" />
+  <input type="hidden" name="MCcostinDollor" value="{{MCcostinDollor}}" />
+  <input type="hidden" name="MCcostinINR" value="{{MCcostinINR}}" />
+  <input type="hidden" name="quote_type" value="{{quote_type}}" />
+  <input type="hidden" name="currency_type" value="{{currency_type}}" />
+
+  <input type="hidden" name="user" value="{{user}}" />
 </form>
 
 <script>
   function amount_calc_1() {
     document.getElementById("Amount1").value = parseFloat(
-      document.getElementById("NoSKUinConatiner1").value *
+      document.getElementById("NoMCinConatiner1").value *
         document.getElementById("Rate1").value
     ).toFixed(3);
   }
