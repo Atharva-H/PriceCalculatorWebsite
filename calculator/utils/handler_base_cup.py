@@ -18,9 +18,24 @@ def base_cup_handler_post(request_body):
     scrape_rate = int(request_body["scrape_rate"][0])
     margin = int(request_body["margin"][0])
 
-    base_cup_cost = base_cup_cost_calculator(
-        size_of_cup, gsm, paper_rate, scrape_rate, margin
-    )
+    try:
+        print("run try 1")
+
+        bottom_gsm = int(request_body["bottom_gsm"][0])
+        print("run try 2")
+
+        base_cup_cost = base_cup_cost_calculator(
+            size_of_cup, gsm, paper_rate, scrape_rate, margin, bottom_gsm
+        )
+        print("run try 3")
+
+    except Exception as e:
+        print("Exception occurred due to :  ", e)
+        bottom_gsm = 0
+        base_cup_cost = base_cup_cost_calculator(
+            size_of_cup, gsm, paper_rate, scrape_rate, margin, bottom_gsm
+        )
+
     context = {}
     context["gsm"] = gsm
     context["base_cup_cost"] = base_cup_cost
@@ -28,6 +43,7 @@ def base_cup_handler_post(request_body):
     context["scrape_rate"] = scrape_rate
     context["size_of_cup"] = size_of_cup
     context["margin"] = margin
+    context["bottom_gsm"] = bottom_gsm
 
     dump_data(context)
 

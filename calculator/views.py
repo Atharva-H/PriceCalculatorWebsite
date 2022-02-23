@@ -104,7 +104,6 @@ def get_quote_pkg(request):
 
     if request.method == "POST":
         request_body = dict(request.POST)
-        print("request_body (get_quote_pkg)=>>> \n", request_body)
 
         context = quote_pkg_post(request_body)
 
@@ -134,7 +133,6 @@ def get_quote_items(request):
 
     if request.method == "POST":
         request_body = dict(request.POST)
-        print("(get_quote_items)=>>> \n", request_body)
         context = quote_nameitem_post(request_body)
         if request.method == "POST" and "Generate" in request.POST:
             context = quote_nameitem_generate(request_body)

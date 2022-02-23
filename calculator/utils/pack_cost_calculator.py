@@ -16,6 +16,7 @@
 # OUTPUTS-
 # A number which is Cost of 1 SKU in Dollors $$$ in three desimials.
 # A number which is Cost of 1 SKU in Rupees ₹₹₹ three desimials.
+from rich import print
 
 
 def PackCost(
@@ -49,6 +50,12 @@ def PackCost(
     CostperSKUinDollor = CostperSKUinINR / DollorRate
     CostperMCinINR = TotalCostperCup * CupsperSKU * SKUperMC
     CostperMCinDollor = CostperMCinINR / DollorRate
+    print("CostLabelperCup", CostLabelperCup)
+    print("  CostPloyperCup", CostPloyperCup)
+    print("  CostMCperCup", CostMCperCup)
+    print("  CostFreightperCup", CostFreightperCup)
+    print("  CostAddperCup", CostAddperCup)
+    print("  TotalCostperCup", TotalCostperCup)
 
     return (
         round(CostperMCinINR, 3),

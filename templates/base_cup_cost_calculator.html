@@ -11,11 +11,11 @@
       <td><label for="size_of_cup">Size of Cup:</label></td>
       <td>
         <select name="size_of_cup" id="size_of_cup" required>
-          <option value="{{size_of_cup}}" , selected>{{size_of_cup}}ml</option>
+          <option value="{{size_of_cup}}" , selected>{{size_of_cup}}</option>
             {{size_of_cup}}
           </option>
           {%for size in size %}
-          <option value="{{size}}">{{size}}ml</option>
+          <option value="{{size}}">{{size}}</option>
           {%endfor%}
         </select>
       </td>
@@ -31,6 +31,19 @@
           min="0"
           placeholder="175"
           required
+        />
+      </td>
+    </tr>
+    <tr>
+      <td><label for="bottom_gsm">Bottom GSM:</label></td>
+      <td>
+        <input
+          type="number"
+          name="bottom_gsm"
+          id="bottom_gsm"
+          value="{{bottom_gsm}}"
+          min="0"
+          placeholder="175"
         />
       </td>
     </tr>
@@ -81,5 +94,5 @@
   <input type="submit" value="Calculate" />
 </form>
 <br />
-<strong>Result!</strong> Base cup cost of {{size_of_cup}} ml is
+<strong>Result!</strong> Base cup cost of {{size_of_cup}}  is
 ₹{{base_cup_cost}} {% endblock %}

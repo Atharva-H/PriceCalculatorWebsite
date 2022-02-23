@@ -7,16 +7,13 @@ from rich import print
 def update_database_item(context):
     size = context["MCSize"]
     size = findall(r"\d+", size)
-    print(
-        "MasterCarton",
-        MasterCarton.objects.filter(length=int(size[0])).filter(breadth=int(size[1])),
-    )
+
     try:
         mastercarton = (
             MasterCarton.objects.filter(length=int(size[0]))
             .filter(breadth=int(size[1]))
             .filter(height=int(size[2]))
-        )
+        )[0]
 
     except Exception as e:
         print("Exception occurred due to :  ", e)
@@ -29,6 +26,7 @@ def update_database_item(context):
     item = Item(
         product=ProductDim.objects.get(product_name=context["size_of_cup"]),
         gsm=context["gsm"],
+        bottom_gsm=context["bottom_gsm"],
         paper_rate=context["paper_rate"],
         scrape_rate=context["scrape_rate"],
         margin=context["margin"],
@@ -50,7 +48,7 @@ def update_database_item(context):
         product_name=context["productName"],
         num_of_sku_per_container=context["SKUperConatiner"],
         product_desription=context["DecSub"],
-        master_carton_ref=mastercarton[0],
+        master_carton_ref=mastercarton,
     )
     item.save()
 

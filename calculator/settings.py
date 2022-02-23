@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-3qxa0q$oqk#@xco4)6tr)gife%5iqm8pt73l92!i60n0wtxosc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.68.111", "127.0.0.1", "192.168.1.137", "192.168.29.175"]
 
 
 # Application definition
@@ -81,10 +81,21 @@ WSGI_APPLICATION = "calculator.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "CostCalculator",
+        "HOST": "db-paricott-calculator.clb4fv0ffygd.us-east-1.rds.amazonaws.com",
+        "USER": "admin",
+        "PASSWORD": "paricott#12340000",
+        "PORT": "3306",
     }
 }
 

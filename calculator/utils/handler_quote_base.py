@@ -1,5 +1,6 @@
 from calculator.models import ProductDim
 from .base_cup_cost_calculator import base_cup_cost_calculator
+from rich import print
 
 
 def quote_base_get():
@@ -16,9 +17,23 @@ def quote_base_post(request_body):
     paper_rate = int(request_body["paper_rate"][0])
     scrape_rate = int(request_body["scrape_rate"][0])
     margin = int(request_body["margin"][0])
-    base_cup_cost = base_cup_cost_calculator(
-        size_of_cup, gsm, paper_rate, scrape_rate, margin
-    )
+    try:
+        print("run try 1")
+
+        bottom_gsm = int(request_body["bottom_gsm"][0])
+        print("run try 2")
+
+        base_cup_cost = base_cup_cost_calculator(
+            size_of_cup, gsm, paper_rate, scrape_rate, margin, bottom_gsm
+        )
+        print("run try 3")
+
+    except Exception as e:
+        print("Exception occurred due to :  ", e)
+        bottom_gsm = 0
+        base_cup_cost = base_cup_cost_calculator(
+            size_of_cup, gsm, paper_rate, scrape_rate, margin, bottom_gsm
+        )
     context = {
         "Date": request_body["Date"][0],
         "No_quote": request_body["noQuote"][0],
@@ -30,10 +45,12 @@ def quote_base_post(request_body):
         "TandC": request_body["T&C"][0],
         "size_of_cup": size_of_cup,
         "gsm": gsm,
+        "bottom_gsm": bottom_gsm,
         "paper_rate": paper_rate,
         "scrape_rate": scrape_rate,
         "margin": margin,
         "base_cup_cost": base_cup_cost,
         "user": request_body["user"][0],
     }
+
     return context

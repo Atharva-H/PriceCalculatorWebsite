@@ -3,7 +3,6 @@ from calculator.models import ProductDim, Buyer, MasterCarton, Quotation, Item, 
 
 def dump_data(context):
     dump = Dump()
-    print("ashu>>", ProductDim.objects.get(product_name=context["size_of_cup"]))
 
     try:
         dump.product = ProductDim.objects.get(product_name=context["size_of_cup"])
@@ -32,5 +31,4 @@ def dump_data(context):
             # dump.buyer_alias = (Buyer.objects.get(buyer_alia=context["Abrv"]),)
     except Exception as e:
         print("Exception occurred due to :  ", e)
-    print(dump)
     dump.save()

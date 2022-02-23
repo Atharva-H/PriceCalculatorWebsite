@@ -87,7 +87,6 @@ def pdf_handler_post(request_body):
             except Exception as e:
                 print("Exception occurred due to :  ", e)
         data.append(col)
-    print(data)
     PDF = topdf(
         No_quote=request_body["noQuote"][0],
         Date=request_body["Date"][0],

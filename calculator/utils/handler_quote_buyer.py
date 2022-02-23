@@ -20,7 +20,6 @@ def quote_buyer_get():
         + Buyer.objects.last().email_id,
         "TandC": Buyer.objects.last().terms_and_conditions,
     }
-    print(last_data)
     buyerlist = []
     userlist = []
 

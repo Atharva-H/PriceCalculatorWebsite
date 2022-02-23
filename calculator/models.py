@@ -8,11 +8,11 @@ User = get_user_model()
 
 class Buyer(models.Model):
     buyer_alias = models.CharField(max_length=30, blank=False, null=False)
-    buyer_name = models.CharField(max_length=30, blank=False, null=False)
-    company_name = models.CharField(max_length=30, blank=False, null=False)
+    buyer_name = models.CharField(max_length=80, blank=False, null=False)
+    company_name = models.CharField(max_length=80, blank=False, null=False)
     company_address = models.TextField(max_length=1000, blank=False, null=False)
-    primary_phone_number = models.CharField(max_length=15, blank=False, null=False)
-    secondary_phone_number = models.CharField(max_length=15, blank=False, null=False)
+    primary_phone_number = models.CharField(max_length=16, blank=False, null=False)
+    secondary_phone_number = models.CharField(max_length=16, blank=False, null=False)
     email_id = models.CharField(max_length=100, blank=False, null=False)
     terms_and_conditions = models.TextField(max_length=500, blank=False, null=False)
 
@@ -47,6 +47,7 @@ class ProductDim(models.Model):
 class ProductCalculationData(models.Model):
     product_id = models.ForeignKey(ProductDim, on_delete=models.CASCADE)
     gsm = models.FloatField()
+    bottom_gsm = models.FloatField()
     die_cup_sheet = models.FloatField()
     num_of_blanks_per_sheet = models.IntegerField()
     weight_blank_per_sheet = models.FloatField()
@@ -71,6 +72,7 @@ class Item(models.Model):
     # Form1
     product = models.ForeignKey(ProductDim, on_delete=models.CASCADE)
     gsm = models.IntegerField()
+    bottom_gsm = models.FloatField()
     paper_rate = models.FloatField()
     scrape_rate = models.FloatField()
     margin = models.FloatField()
@@ -112,6 +114,7 @@ class Quotation(models.Model):
     # item_1 = models.ForeignKey(Item, on_delete=models.CASCADE)
     items = models.ManyToManyField(Item, blank=True)
     # item_3 = models.ForeignKey(Item, on_delete=models.CASCADE)
+    # quote_pdf_url = models.URLField(max_length=200)
 
     created_by = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -17,11 +17,9 @@
       <tr>
         <td>
           <select name="size_of_cup1" id="size_of_cup1" required>
-            <option value="{{size_of_cup}}" , selected>
-              {{size_of_cup}}ml
-            </option>
+            <option value="{{size_of_cup}}" , selected>{{size_of_cup}}</option>
             {%for size in size %}
-            <option value="{{size}}">{{size}}ml</option>
+            <option value="{{size}}">{{size}}</option>
             {%endfor%}
           </select>
         </td>
@@ -55,6 +53,7 @@
           />
         </td>
         <td>
+          {% if currency_type == "currency_type_dollor" %}
           <input
             type="text"
             name="Rate1"
@@ -64,6 +63,17 @@
             required
             placeholder="07.50 "
           />
+          {% else %}
+          <input
+            type="text"
+            name="Rate1"
+            id="Rate1"
+            size="5"
+            value="{{SKUcostinINR}}"
+            required
+            placeholder="07.50 "
+          />
+          {% endif %}
         </td>
         <td>
           <input
@@ -205,6 +215,7 @@ Printing in One Color: Maroon Color"
   <input type="hidden" name="T&C" value="{{TandC}}" />
   <input type="hidden" name="size_of_cup" value="{{size_of_cup}}" />
   <input type="hidden" name="gsm" value="{{gsm}}" />
+  <input type="hidden" name="bottom_gsm" value="{{bottom_gsm}}" />
   <input type="hidden" name="paper_rate" value="{{paper_rate}}" />
   <input type="hidden" name="scrape_rate" value="{{scrape_rate}}" />
   <input type="hidden" name="margin" value="{{margin}}" />

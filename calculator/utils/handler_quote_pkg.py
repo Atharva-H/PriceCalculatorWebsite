@@ -19,6 +19,7 @@ def quote_pkg_post(request_body):
         "TandC": request_body["T&C"][0],
         "size_of_cup": request_body["size_of_cup"][0],
         "gsm": request_body["gsm"][0],
+        "bottom_gsm": request_body["bottom_gsm"][0],
         "paper_rate": request_body["paper_rate"][0],
         "scrape_rate": request_body["scrape_rate"][0],
         "margin": request_body["margin"][0],

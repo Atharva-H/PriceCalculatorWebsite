@@ -15,7 +15,8 @@
   /* background: linear-gradient(160deg, #0f2027, #203a43, #2c5364); */
   /* background: linear-gradient(160deg, #2e3234, #242728); */
   background-color: white;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background-position: center;
 }
 .site-header {

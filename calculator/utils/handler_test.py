@@ -11,7 +11,6 @@ def test_handler_get():
 
 def test_handler_post(request_body):
 
-    print("buyer_alias>>>", request_body)
     user = User.objects.all()
     userlist = []
     for i in user:

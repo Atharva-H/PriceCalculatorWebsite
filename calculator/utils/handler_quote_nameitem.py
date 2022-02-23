@@ -21,14 +21,12 @@ def quote_nameitem_get():
 
 
 def quote_nameitem_post(request_body):
-    print("quote_nameitem_post>> \n", request_body)
 
     user = User.objects.all()
     userlist = []
     for i in user:
         userlist.append(i.username)
 
-    print("quote_nameitem_post >>> \n", request_body["size_of_cup1"])
     product_info = ProductDim.objects.filter(
         product_name=request_body["size_of_cup1"][0]
     )[0]
@@ -43,6 +41,7 @@ def quote_nameitem_post(request_body):
         "TandC": request_body["T&C"][0],
         "size_of_cup": request_body["size_of_cup"][0],
         "gsm": request_body["gsm"][0],
+        "bottom_gsm": request_body["bottom_gsm"][0],
         "paper_rate": request_body["paper_rate"][0],
         "scrape_rate": request_body["scrape_rate"][0],
         "margin": request_body["margin"][0],
@@ -93,7 +92,6 @@ def quote_nameitem_generate(request_body):
     for i in user:
         userlist.append(i.username)
 
-    print("quote_nameitem_post >>> \n", request_body["size_of_cup1"])
     product_info = ProductDim.objects.filter(
         product_name=request_body["size_of_cup1"][0]
     )[0]
@@ -109,6 +107,7 @@ def quote_nameitem_generate(request_body):
         "TandC": request_body["T&C"][0],
         "size_of_cup": request_body["size_of_cup"][0],
         "gsm": request_body["gsm"][0],
+        "bottom_gsm": request_body["bottom_gsm"][0],
         "paper_rate": request_body["paper_rate"][0],
         "scrape_rate": request_body["scrape_rate"][0],
         "margin": request_body["margin"][0],
@@ -170,9 +169,9 @@ def quote_nameitem_generate(request_body):
     )
     abrv = context["Abrv"]
     filename = "Q-" + request_body["noQuote"][0] + " " + context["CompName"]
-    PDF.output(f"quote/{abrv}/{filename}.pdf")
+    PDF.output(f"quote/{filename}.pdf")
 
-    context["Path"] = f"quote/{abrv}/{filename}.pdf"
+    context["Path"] = f"quote/{filename}.pdf"
 
     context = {
         "No_quote": request_body["noQuote"][0],

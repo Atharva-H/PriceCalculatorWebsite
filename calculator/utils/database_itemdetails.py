@@ -122,5 +122,4 @@ def get_data():
         Height,
         DecSub,
     ]
-    print(items_data)
     return items_data
