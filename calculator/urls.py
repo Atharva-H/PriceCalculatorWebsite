@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.conf import settings
+from django.views.static import serve
+from django.conf.urls import url
+
 from .views import (
     base_cup_handler,
     get_quote_buyer,
@@ -39,4 +43,6 @@ urlpatterns = [
     path("packcost", pack_cost_handler, name="Calculater for Packet Cost"),
     path("topdf", pdf_handler, name="Will create a pdf"),
     path("test", test_handler, name="test ur html here"),
+    url(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+    url(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
 ]
