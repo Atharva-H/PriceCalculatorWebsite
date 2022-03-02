@@ -33,9 +33,9 @@ def getquote_topdf(
     class PDF_SKU(FPDF):
         def header(self):
             self.ln(-1)
-            self.image("static\\logo.png", 10, 8, 25)
+            self.image("/static/logo.png", 10, 8, 25)
             self.image(
-                "static\\website.png",
+                "/static/website.png",
                 155,
                 7,
                 40,
@@ -249,14 +249,14 @@ def getquote_topdf(
             self.cell(95, 5, "4. Swift Code: HDFCINBBXXX", ln=1)
             self.cell(95, 5, "5. IFSC Code: HDFC0000912")
             self.cell(85, 5, "Director", align="R")
-            self.image("static\\Seal.png", 140, 268, 23)
+            self.image("/static/Seal.png", 140, 268, 23)
 
     class PDF_MC(FPDF):
         def header(self):
             self.ln(-1)
-            self.image("static\\logo.png", 10, 8, 25)
+            self.image("/static/logo.png", 10, 8, 25)
             self.image(
-                "static\\website.png",
+                "/static/website.png",
                 155,
                 7,
                 40,
@@ -470,7 +470,7 @@ def getquote_topdf(
             self.cell(95, 5, "4. Swift Code: HDFCINBBXXX", ln=1)
             self.cell(95, 5, "5. IFSC Code: HDFC0000912")
             self.cell(85, 5, "Director", align="R")
-            self.image("static\\Seal.png", 140, 268, 23)
+            self.image("/static/Seal.png", 140, 268, 23)
 
     if quote_type == "quote_type_mc":
         pdf = PDF_MC("P", "mm", "A4")
