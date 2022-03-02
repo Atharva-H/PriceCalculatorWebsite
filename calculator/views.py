@@ -1,3 +1,4 @@
+from django.http import FileResponse
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from .utils.handler_base_cup import base_cup_handler_get, base_cup_handler_post
@@ -136,7 +137,8 @@ def get_quote_items(request):
         context = quote_nameitem_post(request_body)
         if request.method == "POST" and "Generate" in request.POST:
             context = quote_nameitem_generate(request_body)
-            return render(request, "location.html", context)
+            return FileResponse(open(context["Path"], "rb"))
+            # return render(request, "location.html", context)
         # if request.method == "POST" and "Add Item" in request.POST:
         else:
             return render(request, "getquote_base_cup_cost.html", context)

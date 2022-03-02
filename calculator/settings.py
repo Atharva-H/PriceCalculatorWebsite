@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-3qxa0q$oqk#@xco4)6tr)gife%5iqm8pt73l92!i60n0wtxosc"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -141,8 +141,12 @@ USE_TZ = True
 STATIC_URL = "/static/"
 # DISABLE_COLLECTSTATIC = 1
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, "calculator", "static"),)
-STATICFILES_DIRS = ["calculator/static"]
-
+STATICFILES_DIRS = [
+    "calculator/static/",
+    os.path.join(BASE_DIR, "static"),
+    BASE_DIR / "static",
+]
+# calculator\static\
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

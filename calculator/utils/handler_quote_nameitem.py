@@ -169,9 +169,7 @@ def quote_nameitem_generate(request_body):
     )
     abrv = context["Abrv"]
     filename = "Q-" + request_body["noQuote"][0] + " " + context["CompName"]
-    PDF.output(f"quote/{filename}.pdf")
-
-    context["Path"] = f"quote/{filename}.pdf"
+    PDF.output(f"{filename}.pdf", "F")
 
     context = {
         "No_quote": request_body["noQuote"][0],
@@ -179,5 +177,6 @@ def quote_nameitem_generate(request_body):
         "created_by": request_body["user"][0],
         "item_count": int(request_body["item_count"][0]),
     }
+    context["Path"] = f"{filename}.pdf"
     update_database_quote(context)
     return context
